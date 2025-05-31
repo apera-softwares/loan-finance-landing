@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --ext ts,tsx,js,jsx,cjs --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx,ts,tsx,cjs --fix",
-    "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}'"
+    "format": "prettier --write 'app/**/*.{js,jsx,ts,tsx,css,html}'",
+    "deploy": "npm run build && npx surge dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

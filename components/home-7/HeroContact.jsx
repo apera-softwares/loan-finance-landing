@@ -1,46 +1,36 @@
-'use client';
+'use client'
 
 import Image from 'next/image'
 import bitcoinShape from '@/public/images/home-7-img/bitcoin.png'
 import heroShapeClip from '@/public/images/home-7-img/clip.png'
 import heroShapeClipDark from '@/public/images/home-7-img/clip-dark.png'
-import heroShapeWorld from '@/public/images/home-7-img/crypto-hero-world.svg'
-import heroShapeWorldDark from '@/public/images/home-7-img/crypto-hero-world-dark.svg'
-import heroGraph from '@/public/images/home-7-img/crypto-hero-graph.png'
-import heroGraphDark from '@/public/images/home-7-img/crypto-hero-graph-dark.png'
-import heroDevice from '@/public/images/home-7-img/crypto-hero-device.png'
-import heroDeviceDark from '@/public/images/home-7-img/crypto-hero-device-dark.png'
-import heroShapeCoin from '@/public/images/home-7-img/coin.png'
 import FadeUpAnimation from '../animations/FadeUpAnimation'
-import Timer from './Timer'
-import Link from 'next/link'
 
-const API_BASE_URL = 'https://bdb0-103-187-249-123.ngrok-free.app';
+const API_BASE_URL = 'https://bdb0-103-187-249-123.ngrok-free.app'
 const HeroContact = () => {
-
   function saveForm(formData) {
     console.log(formData, 'formData')
-    const firstName = formData.get("firstName");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const lastName = formData.get("lastName");
-    const amountNeeded = formData.get("amountNeeded");
-    const annualRevenue = formData.get("annualRevenue");
-    const timeInBusiness = formData.get("timeInBusiness");
-    const creditScore = formData.get("creditScore");
+    const firstName = formData.get('firstName')
+    const email = formData.get('email')
+    const phone = formData.get('phone')
+    const lastName = formData.get('lastName')
+    const amountNeeded = formData.get('amountNeeded')
+    const annualRevenue = formData.get('annualRevenue')
+    const timeInBusiness = formData.get('timeInBusiness')
+    const creditScore = formData.get('creditScore')
 
     const payload = {
-        firstName,
-        lastName,
-        email,
-        phone,
-        amountNeeded: parseInt(amountNeeded),
-        annualRevenue: parseInt(annualRevenue),
-        timeInBusiness,
-        creditScore: parseInt(creditScore)
-      }
+      firstName,
+      lastName,
+      email,
+      phone,
+      amountNeeded: parseInt(amountNeeded),
+      annualRevenue: parseInt(annualRevenue),
+      timeInBusiness,
+      creditScore: parseInt(creditScore),
+    }
 
-    console.log(payload, "payload")
+    console.log(payload, 'payload')
 
     fetch(`${API_BASE_URL}/lead`, {
       method: 'POST',
@@ -48,16 +38,13 @@ const HeroContact = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }
+      return response.json()
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-
   }
-
 
   return (
     <section
@@ -128,14 +115,10 @@ const HeroContact = () => {
 
       <div className="container">
         <div className="relative z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
-          <FadeUpAnimation className="col-span-12 mb-15 text-center lg:mb-50">
+          <FadeUpAnimation className="lg:mb-50 col-span-12 mb-15 text-center">
             {/* <p className="mb-8 font-medium uppercase max-lg:mb-4">Effortless wallet</p> */}
-            <h1 className="mb-12 max-md:mb-8">
-              Apply Online in Minutes
-            </h1>
-            <h3 className="mb-12 max-md:mb-8">
-              Create An Account and Get an Initial Estimate
-            </h3>
+            <h1 className="mb-12 max-md:mb-8">Apply Online in Minutes</h1>
+            <h3 className="mb-12 max-md:mb-8">Create An Account and Get an Initial Estimate</h3>
             <div className="relative z-10 mx-auto max-w-[850px]">
               <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 max-lg:max-w-full max-md:hidden">
                 <div className="h-[442px] w-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
@@ -208,7 +191,10 @@ const HeroContact = () => {
                           className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
                           How much does your business need? (Amount)
                         </label>
-                        <select name='amountNeeded' id='amountNeeded' className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                        <select
+                          name="amountNeeded"
+                          id="amountNeeded"
+                          className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={10000}>Under 10000$</option>
                           <option value={20000}>10000 - 20000$</option>
                           <option value={30000}>20000 - 30000$</option>
@@ -225,7 +211,10 @@ const HeroContact = () => {
                           className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
                           How much business are you doing? (Annual Revenue)
                         </label>
-                        <select name='annualRevenue' id='annualRevenue' className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                        <select
+                          name="annualRevenue"
+                          id="annualRevenue"
+                          className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={10000}>Under 10000$</option>
                           <option value={20000}>10000 - 20000$</option>
                           <option value={30000}>20000 - 30000$</option>
@@ -242,7 +231,10 @@ const HeroContact = () => {
                           className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
                           How long have you been in business? (Time in business)
                         </label>
-                        <select name='timeInBusiness' id='timeInBusiness' className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                        <select
+                          name="timeInBusiness"
+                          id="timeInBusiness"
+                          className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={6}>Less than 6 months</option>
                           <option value={12}>6-12 Months</option>
                           <option value={24}>1-2 Years</option>
@@ -253,14 +245,16 @@ const HeroContact = () => {
                         </select>
                       </div>
 
-
                       <div className="col-span-full">
                         <label
                           htmlFor="creditScore"
                           className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
                           What is your credit score?
                         </label>
-                        <select name='creditScore' id='creditScore' className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                        <select
+                          name="creditScore"
+                          id="creditScore"
+                          className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={550}>500-550</option>
                           <option value={600}>550-600</option>
                           <option value={650}>600-650</option>
@@ -270,18 +264,17 @@ const HeroContact = () => {
                         </select>
                       </div>
 
-
                       <div className="col-span-full mx-auto text-center">
-                        <button type="submit" className="btn">Get Qualified Now</button>
+                        <button type="submit" className="btn">
+                          Get Qualified Now
+                        </button>
                       </div>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-
           </FadeUpAnimation>
-
 
           {/* <Timer /> */}
         </div>

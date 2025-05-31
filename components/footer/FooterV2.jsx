@@ -12,6 +12,7 @@ const FooterV2 = () => {
           <div className="-ml-[170px] rounded-full  bg-primary-200/25 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
           <div className="-ml-[170px] rounded-full  bg-primary-200/20 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
         </div>
+
         <div className="mb-10  flex items-center justify-between max-md:flex-col max-md:gap-y-10">
           <div className="max-md:text-center">
             <Image
@@ -54,7 +55,7 @@ const FooterV2 = () => {
             className="hidden w-full object-cover dark:block  max-md:h-[1px]"
           />
         </div>
-        <div className="mb-20 grid grid-cols-12 max-lg:gap-y-10 max-lg:text-center">
+        {/*  <div className="mb-20 grid grid-cols-12 max-lg:gap-y-10 max-lg:text-center">
           <div className="col-span-12 max-lg:text-center md:col-span-6 lg:col-span-2">
             <h3 className="mb-8 text-lg font-medium">Explore</h3>
             <ul className="[&>*:not(:last-child)]:mb-3">
@@ -157,7 +158,7 @@ const FooterV2 = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="seperator">
           <Image

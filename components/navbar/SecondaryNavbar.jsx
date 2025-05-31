@@ -53,7 +53,7 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
               />
             </Link>
           </div>
-          <ul className="nav-list hidden lg:ml-7 lg:flex xl:ml-15 [&>*:not(:last-child)]:me-1">
+          {/* <ul className="nav-list hidden lg:ml-7 lg:flex xl:ml-15 [&>*:not(:last-child)]:me-1">
             {menuData.menuContent.map((menuItem) => (
               <li
                 className={`${menuItem.megaMenu ? 'group' : !menuItem.path ? 'group relative' : ''}`}
@@ -134,10 +134,10 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
                 )}
               </li>
             ))}
-          </ul>
+          </ul> */}
 
           <ul className="ml-auto flex items-center [&>*:not(:last-child)]:me-2.5">
-            <li className="flex items-center">
+            {/* <li className="flex items-center">
               <button
                 onClick={() => setShowSearch(!showSearch)}
                 className="rounded-full bg-white p-2.5 dark:bg-dark-200 "
@@ -152,10 +152,10 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
                   />
                 </svg>
               </button>
-            </li>
+            </li> */}
             <li className="flex items-center max-lg:hidden">
               <Link href="/request-demo" className="btn btn-navbar btn-sm">
-                Request Demo
+                Login
               </Link>
             </li>
             <li className="max-lg:inline-block lg:hidden">

@@ -2,7 +2,7 @@ import CounterAnimation from '@/utils/CounterAnimation'
 
 const MembersCounter = ({ border = true }) => {
   return (
-    <section className='pt-[140px]'>
+    <section>
       <div className="container relative">
         <div
           className={`relative grid grid-cols-12 gap-x-5 gap-y-5 py-10 ${
@@ -28,9 +28,7 @@ const MembersCounter = ({ border = true }) => {
                   </h3>
                 </div>
               </div>
-              <h3 className="leading-8 ">
-                Small Businesses Funded
-              </h3>
+              <h3 className="leading-8 ">Small Businesses Funded</h3>
             </div>
           </div>
           <div className="py-5 max-md:col-span-full md:col-span-6 lg:col-span-3 ">
@@ -45,9 +43,7 @@ const MembersCounter = ({ border = true }) => {
                   </h3>
                 </div>
               </div>
-              <h3 className="leading-8 ">
-                Small Business Financings Provided 
-              </h3>
+              <h3 className="leading-8 ">Small Business Financings Provided</h3>
             </div>
           </div>
         </div>

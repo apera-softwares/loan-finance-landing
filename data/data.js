@@ -683,7 +683,7 @@ export const PaymentFeaturesData = [
     iconLight: '/images/payment/paymentCashback.svg',
     iconDark: '/images/payment/paymentCashback-dark.svg',
     title: 'Works for Most Business Needs',
-    desc: 'Helping business owners like you fund what\'s next.',
+    desc: "Helping business owners like you fund what's next.",
   },
 ]
 

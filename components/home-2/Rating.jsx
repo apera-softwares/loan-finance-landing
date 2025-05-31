@@ -22,7 +22,7 @@ const Rating = () => {
     },
   ]
   return (
-    <section className='pt-[140px]'>
+    <section className="pt-[140px]">
       <div className="container">
         <div className="grid grid-cols-12 items-center gap-5 rounded-medium bg-white p-2.5 shadow-nav dark:bg-dark-200">
           <div className="pl-12 max-lg:col-span-full max-lg:py-12 max-lg:pl-0 max-lg:text-center lg:col-span-5 lg:max-w-[425px]">

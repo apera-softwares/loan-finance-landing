@@ -21,7 +21,7 @@ const CoreFeature = () => {
       title: 'Works for Most Business Needs',
       iconLight: '/images/payment/inventory.svg',
       iconDark: '/images/payment/inventory-dark.svg',
-      desc: 'Helping business owners like you fund what\'s next.',
+      desc: "Helping business owners like you fund what's next.",
     },
     // {
     //   id: 4,
@@ -51,8 +51,7 @@ const CoreFeature = () => {
       <div className="container">
         <div className="mx-auto mb-12 max-w-[575px] text-center">
           <p className="section-tagline">Core Features</p>
-          <h2>Revenue-Based Financing
-Fast and flexible financing for your business</h2>
+          <h2>Revenue-Based Financing Fast and flexible financing for your business</h2>
         </div>
 
         <div className="relative z-10">

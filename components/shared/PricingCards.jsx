@@ -10,8 +10,17 @@ const PricingCards = ({ isAnnual, version }) => {
   return (
     <div className="relative md:z-10">
       <PricingBackground />
-      <div className={cn('relative flex items-center content-center gap-8 max-lg:flex-col max-md:z-10', version ? 'pb-12' : '')}>
-        <div></div><div></div><div></div><div></div><div></div><div></div>
+      <div
+        className={cn(
+          'relative flex content-center items-center gap-8 max-lg:flex-col max-md:z-10',
+          version ? 'pb-12' : '',
+        )}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
         {version ? (
           <>
             {PricingData.map((price) => (

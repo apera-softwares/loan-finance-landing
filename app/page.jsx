@@ -1,4 +1,31 @@
-import Footer from '@/components/footer/Footer'
+import FooterV2 from '@/components/footer/FooterV2'
+import CoreFeature from '@/components/home-2/CoreFeature'
+import Rating from '@/components/home-2/Rating'
+import HeroContact from '@/components/home-7/HeroContact'
+import SecondaryNavbar from '@/components/navbar/SecondaryNavbar'
+import MembersCounter from '@/components/shared/MembersCounter'
+import Pricing from '@/components/shared/Pricing'
+export const metadata = {
+  title: 'Crypto Currency',
+}
+
+export default function Home() {
+  return (
+    <>
+      <SecondaryNavbar hideTopBar />
+      <main>
+        <HeroContact />
+        <CoreFeature />
+        <Pricing />
+        <MembersCounter />
+        <Rating />
+      </main>
+      <FooterV2 />
+    </>
+  )
+}
+
+/* import Footer from '@/components/footer/Footer'
 import Cta from '@/components/home-1/Cta'
 import Faq from '@/components/home-1/Faq'
 import Hero from '@/components/home-1/Hero'
@@ -13,7 +40,7 @@ import Services from '@/components/shared/Services'
 import Testimonial from '@/components/shared/Testimonial'
 
 export const metadata = {
-  title: 'Aplio',
+  title: 'Lending Square',
 }
 
 export default function Home() {
@@ -37,3 +64,4 @@ export default function Home() {
     </>
   )
 }
+ */

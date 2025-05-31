@@ -3,6 +3,7 @@ import { cn } from '@/utils/cn'
 import Link from 'next/link'
 
 const PricingCard = ({ price, isAnnual }) => {
+  console.log(isAnnual)
   return (
     <div>
       <div className="rounded-medium bg-white p-2.5 shadow-box dark:bg-dark-200">
