@@ -1,9 +1,4 @@
 'use client'
-
-import Image from 'next/image'
-import bitcoinShape from '@/public/images/home-7-img/bitcoin.png'
-import heroShapeClip from '@/public/images/home-7-img/clip.png'
-import heroShapeClipDark from '@/public/images/home-7-img/clip-dark.png'
 import FadeUpAnimation from '../animations/FadeUpAnimation'
 
 const API_BASE_URL = 'https://bdb0-103-187-249-123.ngrok-free.app'

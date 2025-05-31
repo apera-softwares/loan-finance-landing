@@ -1,7 +1,7 @@
 {
   "menuData": {
-    "logoLight": "/images/logo.png",
-    "logoDark": "/images/logo-dark.png",
+    "logoLight": "/images/logo.svg",
+    "logoDark": "/images/logo-dark.svg",
     "btnLlink": "/signin",
     "menuContent": [
       {
