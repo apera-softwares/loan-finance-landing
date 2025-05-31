@@ -1,0 +1,44 @@
+{
+  "PricingData": [
+    {
+      "id": 1,
+      "featured": true,
+      "title": "Revenue-Based Financing",
+      "desc": "Fast funding that works for your business.",
+      "priceMonthly": "19.00",
+      "priceYearly": "230.00",
+      "save": "",
+      "priceList": [
+        {
+          "name": "Average funding amount: $92,643*"
+        },
+        {
+          "name": "Create your account to prequalifyⓘ"
+        },
+        {
+          "name": "Paid back from business receipts"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "featured": true,
+      "title": "Term Loan",
+      "desc": "Fixed-rate financing for eligible customers.",
+      "priceMonthly": "32.00",
+      "priceYearly": "350.00",
+      "save": "",
+      "priceList": [
+        {
+          "name": "Average funding amount: $242,299*"
+        },
+        {
+          "name": "Qualify automatically after you submit your application"
+        },
+        {
+          "name": "Requires FICO of 650 and $250,000 in revenue"
+        }
+      ]
+    }
+  ]
+}
