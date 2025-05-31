@@ -50,7 +50,7 @@ const HeroContact = () => {
     <section
       className="hero crypto-hero relative overflow-hidden bg-white pt-[230px] dark:bg-dark-300 max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
       id="scene">
-      <Image
+      {/* <Image
         src={bitcoinShape}
         alt="bitcoin shape"
         className="absolute left-[200px] top-[160px] animate-floating max-md:hidden"
@@ -64,7 +64,7 @@ const HeroContact = () => {
         src={heroShapeClipDark}
         alt="clip"
         className="absolute right-12 top-[160px]  animate-floating dark:hidden max-md:hidden"
-      />
+      /> */}
       <div className="absolute -top-10 left-1/2 h-[200px] w-full max-w-[900px] -translate-x-1/2 rounded-full bg-primary/50 blur-[145px]"></div>
 
       <div className="absolute left-1/2 top-0 max-w-[1612px] -translate-x-1/2 max-lg:hidden">

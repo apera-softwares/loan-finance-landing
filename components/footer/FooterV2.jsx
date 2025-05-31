@@ -7,6 +7,7 @@ const FooterV2 = () => {
   return (
     <footer className="relative overflow-hidden bg-white pt-150 dark:bg-dark-300 max-md:pt-20">
       <div className="container  relative z-10">
+        
         <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 max-md:flex-col">
           <div className="rounded-full bg-primary-200/20  blur-[145px] max-1xl:h-[335px]  max-1xl:w-[335px] 1xl:h-[442px] 1xl:w-[442px]"></div>
           <div className="-ml-[170px] rounded-full  bg-primary-200/25 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
@@ -19,15 +20,15 @@ const FooterV2 = () => {
               src={FooterData.logo}
               alt="logo"
               className="mb-10 mb-10 inline-block dark:hidden"
-              width={70}
-              height={29}
+              width={200}
+              height={80}
             />
             <Image
               src={FooterData.logoDark}
               alt="logo dark version"
               className="mb-10 mb-10 hidden dark:inline-block"
-              width={70}
-              height={29}
+              width={200}
+              height={80}
             />
             <p className="max-w-[350px] max-lg:mx-auto">{FooterData.footerText}</p>
           </div>
@@ -160,18 +161,14 @@ const FooterV2 = () => {
           </div>
         </div> */}
 
-        <div className="seperator">
+        {/* <div className="seperator">
           <Image
             src={footerSeperator}
             alt="footer-seperator"
             className="w-full object-cover dark:hidden max-md:h-[1px]"
           />
-          <Image
-            src={footerSeperatorDark}
-            alt="footer-seperator"
-            className="hidden w-full object-cover dark:block max-md:h-[1px]"
-          />
-        </div>
+          
+        </div> */}
 
         <div className="py-10 max-lg:text-center">
           <div className="flex max-lg:flex-col lg:items-center">

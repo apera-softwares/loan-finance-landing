@@ -43,13 +43,13 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
         <nav className="container relative flex items-center">
           <div className="nav-logo">
             <Link href="/">
-              <Image src={menuData.logoLight} alt="logo" className="dark:hidden" width={70} height={29} />
+              <Image src={menuData.logoLight} alt="logo" className="dark:hidden" width={200} height={80} />
               <Image
                 src={menuData.logoDark}
                 alt="logo dark version"
                 className="hidden dark:inline-block"
-                width={70}
-                height={29}
+                width={200}
+                height={80}
               />
             </Link>
           </div>

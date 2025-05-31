@@ -1,8 +1,8 @@
 import { Behance, Facebook, Github, LinkedIn } from './svgImages'
 export const FooterData = {
-  logo: '/images/logo.svg',
-  logoDark: '/images/logo-light.svg',
-  footerText: 'Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id mauris.',
+  logo: '/images/logo.png',
+  logoDark: '/images/logo-dark.png',
+  footerText: 'Business financing with simple steps.',
   copyright: `${new Date().getFullYear()} Aplio. All Rights Reserved`,
   email: 'info@example.com',
   phone: '+3 230 705 5448',
