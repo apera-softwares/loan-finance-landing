@@ -6,7 +6,7 @@ import SecondaryNavbar from '@/components/navbar/SecondaryNavbar'
 import MembersCounter from '@/components/shared/MembersCounter'
 import Pricing from '@/components/shared/Pricing'
 export const metadata = {
-  title: 'Crypto Currency',
+  title: 'Lending Square | Business Financing',
 }
 
 export default function Home() {

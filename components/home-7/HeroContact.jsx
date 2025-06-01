@@ -1,7 +1,7 @@
 'use client'
 import FadeUpAnimation from '../animations/FadeUpAnimation'
 
-const API_BASE_URL = 'https://bdb0-103-187-249-123.ngrok-free.app'
+const API_BASE_URL = 'http://209.182.232.11:4049'
 const HeroContact = () => {
   function saveForm(formData) {
     console.log(formData, 'formData')
@@ -37,6 +37,7 @@ const HeroContact = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
       }
+      alert("Your application is saved successfully. Our representative will contact you soon. ")
       return response.json()
     })
   }

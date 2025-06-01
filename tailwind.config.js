@@ -24,9 +24,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: '#B1E346',
-          100: '#F3F8E8',
-          200: '#C4F241',
+          DEFAULT: '#8dbceb',
+          100: '#6896c4',
+          200: '#5b8bba',
         },
         dark: {
           DEFAULT: '#131410',
@@ -48,7 +48,7 @@ module.exports = {
         },
         paragraph: {
           DEFAULT: '#18181B',
-          light: '#5D6167',
+          light: '#9ba2ab',
         },
         rating: {
           DEFAULT: '#FFC107',
