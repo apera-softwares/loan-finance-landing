@@ -37,7 +37,7 @@ const HeroContact = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
       }
-      alert("Your application is saved successfully. Our representative will contact you soon. ")
+      alert('Your application is saved successfully. Our representative will contact you soon.')
       return response.json()
     })
   }
