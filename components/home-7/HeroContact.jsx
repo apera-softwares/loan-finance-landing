@@ -128,7 +128,7 @@ const HeroContact = () => {
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="firstName"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
                           First name
                         </label>
                         <input
@@ -142,7 +142,7 @@ const HeroContact = () => {
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="lastName"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
                           Last name
                         </label>
                         <input
@@ -156,7 +156,7 @@ const HeroContact = () => {
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="email"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
                           Your Email
                         </label>
                         <input
@@ -170,7 +170,7 @@ const HeroContact = () => {
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="phone"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
                           Your Phone
                         </label>
                         <input
@@ -181,16 +181,17 @@ const HeroContact = () => {
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
                         />
                       </div>
-                      <div className="col-span-full">
+                      <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="amountNeeded"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
-                          How much does your business need? (Amount)
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
+                          How much does your business need?
                         </label>
                         <select
                           name="amountNeeded"
                           id="amountNeeded"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          <option value={0}>Select Amount</option>
                           <option value={10000}>Under 10000$</option>
                           <option value={20000}>10000 - 20000$</option>
                           <option value={30000}>20000 - 30000$</option>
@@ -201,16 +202,18 @@ const HeroContact = () => {
                         </select>
                       </div>
 
-                      <div className="col-span-full">
+                      <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="annualRevenue"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
-                          How much business are you doing? (Annual Revenue)
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
+                          How much business are you doing?
                         </label>
                         <select
                           name="annualRevenue"
                           id="annualRevenue"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+
+                          <option value={0}>Select Annual Revenue</option>
                           <option value={10000}>Under 10000$</option>
                           <option value={20000}>10000 - 20000$</option>
                           <option value={30000}>20000 - 30000$</option>
@@ -221,16 +224,17 @@ const HeroContact = () => {
                         </select>
                       </div>
 
-                      <div className="col-span-full">
+                      <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="timeInBusiness"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
-                          How long have you been in business? (Time in business)
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
+                          How long have you been in business? 
                         </label>
                         <select
                           name="timeInBusiness"
                           id="timeInBusiness"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          <option value={0}>Time in business</option>
                           <option value={6}>Less than 6 months</option>
                           <option value={12}>6-12 Months</option>
                           <option value={24}>1-2 Years</option>
@@ -241,16 +245,17 @@ const HeroContact = () => {
                         </select>
                       </div>
 
-                      <div className="col-span-full">
+                      <div className="max-md:col-span-full md:col-span-6">
                         <label
                           htmlFor="creditScore"
-                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
+                          className="mb-2 block font-jakarta_sans text-sm font-medium text-paragraph dark:text-white text-left">
                           What is your credit score?
                         </label>
                         <select
                           name="creditScore"
                           id="creditScore"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          <option value={0}>Select Credit Score</option> 
                           <option value={550}>500-550</option>
                           <option value={600}>550-600</option>
                           <option value={650}>600-650</option>
