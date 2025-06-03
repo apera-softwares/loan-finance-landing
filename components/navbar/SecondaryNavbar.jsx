@@ -53,17 +53,15 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
               />
             </Link>
           </div>
-         
 
           <ul className="ml-auto flex items-center [&>*:not(:last-child)]:me-2.5">
-           
             <li className="flex items-center max-lg:hidden">
-              <Link href={menuData.btnLink}  className="btn btn-navbar btn-sm">
+              <Link href={menuData.btnLink} className="btn btn-navbar btn-sm">
                 Login
               </Link>
             </li>
             <li className="max-lg:inline-block lg:hidden">
-               <Link href={menuData.btnLink} className="btn btn-navbar btn-sm">
+              <Link href={menuData.btnLink} className="btn btn-navbar btn-sm">
                 Login
               </Link>
               {/* <button
@@ -178,9 +176,9 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
               ))}
 
               <li>
-               <Link href="http://app.lending-square.com/signin" className="btn btn-navbar btn-sm">
-                Login
-              </Link>
+                <Link href="http://app.lending-square.com/signin" className="btn btn-navbar btn-sm">
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
