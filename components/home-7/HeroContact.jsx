@@ -2,6 +2,12 @@
 import FadeUpAnimation from '../animations/FadeUpAnimation'
 
 const API_BASE_URL = 'http://209.182.232.11:4049'
+
+const USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
+
 const HeroContact = () => {
   function saveForm(formData) {
     console.log(formData, 'formData')
@@ -192,13 +198,24 @@ const HeroContact = () => {
                           id="amountNeeded"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Select Amount</option>
-                          <option value={10000}>Under 10000$</option>
-                          <option value={20000}>10000 - 20000$</option>
-                          <option value={30000}>20000 - 30000$</option>
-                          <option value={50000}>30000 - 50000$</option>
-                          <option value={100000}>50000 - 100000$</option>
-                          <option value={300000}>100000 - 300000$</option>
-                          <option value={300001}>More than 300000$</option>
+                          <option value={10000}>Under {USDollar.format(10000)}</option>
+                          <option value={20000}>
+                            {USDollar.format(10000)} - {USDollar.format(20000)}
+                          </option>
+                          <option value={30000}>
+                            {USDollar.format(20000)} - {USDollar.format(30000)}
+                          </option>
+                          <option value={50000}>
+                            {USDollar.format(30000)} - {USDollar.format(50000)}
+                          </option>
+                          <option value={100000}>
+                            {USDollar.format(50000)} - {USDollar.format(100000)}
+                          </option>
+                          <option value={300000}>
+                            {' '}
+                            {USDollar.format(100000)} - {USDollar.format(300000)}
+                          </option>
+                          <option value={300001}>More than {USDollar.format(300000)}</option>
                         </select>
                       </div>
 
@@ -213,13 +230,23 @@ const HeroContact = () => {
                           id="annualRevenue"
                           className="block w-full rounded-[48px] border border-borderColor bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Select Annual Revenue</option>
-                          <option value={10000}>Under 10000$</option>
-                          <option value={20000}>10000 - 20000$</option>
-                          <option value={30000}>20000 - 30000$</option>
-                          <option value={50000}>30000 - 50000$</option>
-                          <option value={100000}>50000 - 100000$</option>
-                          <option value={300000}>100000 - 300000$</option>
-                          <option value={300001}>More than 300000$</option>
+                          <option value={10000}>Under {USDollar.format(10000)}</option>
+                          <option value={20000}>
+                            {USDollar.format(10000)} - {USDollar.format(20000)}
+                          </option>
+                          <option value={30000}>
+                            {USDollar.format(20000)} - {USDollar.format(30000)}
+                          </option>
+                          <option value={50000}>
+                            {USDollar.format(30000)} - {USDollar.format(50000)}
+                          </option>
+                          <option value={100000}>
+                            {USDollar.format(50000)} - {USDollar.format(100000)}
+                          </option>
+                          <option value={300000}>
+                            {USDollar.format(100000)} - {USDollar.format(300000)}
+                          </option>
+                          <option value={300001}>More than {USDollar.format(300000)}</option>
                         </select>
                       </div>
 
