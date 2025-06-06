@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const CoreFeature = () => {
   const CoreFeatures = [
@@ -46,22 +47,25 @@ const CoreFeature = () => {
     // },
   ]
   return (
-    <section className="relative pt-150">
-      <div className="absolute left-0 right-0 top-150 h-full w-full bg-[url('/images/core-gradient.png')] bg-[length:600px_1800px] bg-center bg-no-repeat opacity-70 md:hidden"></div>
+    <section className="relative pt-150 ">
+    {/* <section className="relative mt-[1100px] md:mt-[20%]"> */}
+
+      <div className="absolute left-0 right-0 top-150 h-full w-full md:hidden"></div>
       <div className="container">
-        <div className="mx-auto mb-12 max-w-[575px] text-center">
-          <p className="section-tagline">Core Features</p>
-          <h2>Revenue-Based Financing Fast and flexible financing for your business</h2>
+        <div className="mx-auto mb-12 max-w-[810px] text-center">
+          <p className=" text-[#FA8331]">About Our Most Popular Product</p>
+          <h2>Revenue-Based Financing</h2>
+          <h2>Fast and Flexible Financing For Your Business</h2>
         </div>
 
         <div className="relative z-10">
-          <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 max-md:hidden max-md:flex-col">
+          {/* <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 max-md:hidden max-md:flex-col">
             <div className="rounded-full bg-primary-200/20  blur-[145px] max-1xl:h-[335px]  max-1xl:w-[335px] 1xl:h-[442px] 1xl:w-[442px]"></div>
             <div className="-ml-[170px] rounded-full  bg-primary-200/25 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
             <div className="-ml-[170px] rounded-full  bg-primary-200/20 blur-[145px]  max-1xl:h-[335px] max-1xl:w-[335px] max-md:ml-0 1xl:h-[442px] 1xl:w-[442px]"></div>
-          </div>
+          </div> */}
 
-          <div className="relative flex  flex-col [&>*:not(:last-child)]:after:absolute [&>*:not(:last-child)]:after:bottom-0 [&>*:not(:last-child)]:after:h-0.5 [&>*:not(:last-child)]:after:w-full [&>*:not(:last-child)]:after:overflow-hidden [&>*:not(:last-child)]:after:content-[url('/images/payment/seperator.png')] dark:[&>*:not(:last-child)]:after:content-[url('/images/payment/seperator-dark.png')] max-md:[&>*:not(:last-child)]:after:hidden">
+          {/* <div className="relative flex  flex-col [&>*:not(:last-child)]:after:absolute [&>*:not(:last-child)]:after:bottom-0 [&>*:not(:last-child)]:after:h-0.5 [&>*:not(:last-child)]:after:w-full [&>*:not(:last-child)]:after:overflow-hidden [&>*:not(:last-child)]:after:content-[url('/images/payment/seperator.png')] dark:[&>*:not(:last-child)]:after:content-[url('/images/payment/seperator-dark.png')] max-md:[&>*:not(:last-child)]:after:hidden">
             <div className="relative grid grid-cols-3 max-lg:grid-cols-1 [&>*:nth-child(3n+1)]:before:absolute [&>*:nth-child(3n+1)]:before:left-0 [&>*:nth-child(3n+1)]:before:top-1/2 [&>*:nth-child(3n+1)]:before:h-full [&>*:nth-child(3n+1)]:before:w-[1px] [&>*:nth-child(3n+1)]:before:-translate-y-1/2 [&>*:nth-child(3n+1)]:before:content-[url('/images/payment/coreborder-right.svg')] dark:[&>*:nth-child(3n+1)]:before:content-[url('/images/payment/coreborder-right-dark.svg')] max-lg:[&>*:nth-child(3n+1)]:before:hidden ">
               {CoreFeatures.slice(0, 3).map((items) => (
                 <div
@@ -114,7 +118,40 @@ const CoreFeature = () => {
                 </div>
               ))}
             </div>
+          </div> */}
+          <div className='flex md:flex-row md:justify-between flex-col grid-cols-2 gap-5 w-full h-full bg-[#fff]'>
+            <div className='border border-[#DFDFDF] p-10 rounded md:w-[40%] shadow-box'>
+              <span className='mb-8 mt-6 w-[89px] h-[86px] border text-center rounded'>Icon</span>
+              <h3 className='mb-6 text-4xl'>Apply Online in Minutes</h3>
+              <p className='mb-6 text-xl'>Apply for funding using our award-winning platform. </p>
+              <Link href="./" className='font-semibold text-[#213468]'>Learn how it works? </Link>
+            </div>
+            <div className='flex flex-col gap-5 md:w-[60%] h-full'>
+
+              <div className='border border-[#DFDFDF] rounded p-10 flex gap-6 items-start text-white bg-[#75BFB8] w-full shadow-box'>
+                 <span className='w-[12%] h-[86px] border text-center rounded'>Icon</span>
+              <div className='w-[88%]'><h3 className='mb-3 text-white'>Fast Prequalification</h3>
+              <p className='mb-3 text-white text-xl text-wrap'>Create your Biz2Credit account and see an initial estimate of how much Revenue-Based Financing you could qualify for </p>
+              <Link href="./" className='font-semibold text-white'>Subject to additional review?</Link></div>
+              </div>
+
+              <div className='border border-[#DFDFDF] rounded p-10 flex gap-6 items-start shadow-box'>
+                 <span className='w-[12%] h-[86px] border text-center rounded'>Icon</span>
+              <div className='w-[88%]'><h3 className='mb-3'>Works for Most Business Needs</h3>
+              <p className='mb-3 text-xl text-wrap'>Helping business owners like you fund what's next. </p>
+              <Link href="./" className='font-semibold text-[#213468]'>Learn about Revenue-Based Financing? </Link></div>
+              </div>
+              
+            </div>
           </div>
+          {/* <div class="grid grid-flow-col grid-rows-3 gap-4">
+  <div class="row-span-3 p-6 border"> <span className='my-4'>Icon</span>
+              <h4 className='mb-4'>Apply Online in Minutes</h4>
+              <p className='mb-4'>Apply for funding using our award-winning platform. </p>
+              <Link href="./">Learn how it works? </Link></div>
+  <div class="col-span-2  border">02</div>
+  <div class="col-span-2 row-span-2 border">03</div>
+</div> */}
         </div>
       </div>
     </section>

@@ -5,6 +5,9 @@
       "featured": true,
       "title": "Revenue-Based Financing",
       "desc": "Fast funding that works for your business.",
+      "paraDesc": "Your Business",
+      "info": "Estimates based on all term loan transactions January 2023 - December 2023",
+
       "priceMonthly": "19.00",
       "priceYearly": "230.00",
       "save": "",
@@ -13,7 +16,8 @@
           "name": "Average funding amount: $92,643*"
         },
         {
-          "name": "Create your account to prequalifyⓘ"
+          "name": "Create your account to ",
+          "highlight": "Prequalify ⓘ"
         },
         {
           "name": "Paid back from business receipts"
@@ -25,6 +29,8 @@
       "featured": true,
       "title": "Term Loan",
       "desc": "Fixed-rate financing for eligible customers.",
+      "paraDesc": "Eligible Customers",
+      "info": "Estimates based on all revenue-based financing transactions January 2023 - December 2023",
       "priceMonthly": "32.00",
       "priceYearly": "350.00",
       "save": "",
@@ -33,7 +39,8 @@
           "name": "Average funding amount: $242,299*"
         },
         {
-          "name": "Qualify automatically after you submit your application"
+          "name": "Qualify automatically after you submit",
+          "highlight": "Your Application ⓘ"
         },
         {
           "name": "Requires FICO of 650 and $250,000 in revenue"

@@ -8,11 +8,14 @@ const Pricing = ({ className = 'pt-150', showPricingText = true, largeTitle = fa
       <div className="container">
         <div className={`${largeTitle ? 'max-w-[900px]' : 'max-w-[475px]'} mx-auto mb-12 text-center`}>
           <div className={cn(showPricingText ? '' : 'hidden')}>
-            <p className="section-tagline">We Know Business Funding</p>
+            <h2>We Know Business Funding</h2>
+            <span className="my-2 text-[#FA8331]">Your business is unique.</span>
+            <span className="mb-3">We get small business and have several financing options.</span>
             {largeTitle ? (
-              <h1>Your business is unique.</h1>
+              <spam>Your business is unique.</spam>
             ) : (
-              <h2>We get small business and have several financing options. </h2>
+              <></>
+              // <h2>We get small business and have several financing options. </h2>
             )}
             {pricingDescription ? (
               <p className="mb-12 mt-10">

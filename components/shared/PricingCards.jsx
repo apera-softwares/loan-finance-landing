@@ -9,18 +9,13 @@ const PricingCards = ({ isAnnual, version }) => {
   const { PricingData } = Pricing
   return (
     <div className="relative md:z-10">
-      <PricingBackground />
+      {/* <PricingBackground /> */}
       <div
         className={cn(
-          'relative flex content-center items-center gap-8 max-lg:flex-col max-md:z-10',
+          ' flex content-center items-center gap-6 max-lg:flex-col max-md:z-10 w-full ',
           version ? 'pb-12' : '',
         )}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        
         {version ? (
           <>
             {PricingData.map((price) => (

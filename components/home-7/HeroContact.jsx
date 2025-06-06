@@ -9,6 +9,7 @@ const USDollar = new Intl.NumberFormat('en-US', {
 })
 
 const HeroContact = () => {
+  
   function saveForm(formData) {
     console.log(formData, 'formData')
     const firstName = formData.get('firstName')
@@ -50,7 +51,7 @@ const HeroContact = () => {
 
   return (
     <section
-      className="hero crypto-hero relative overflow-hidden bg-white pt-[230px] dark:bg-dark-300 max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
+      className="hero crypto-hero relative  bg-[#101832] pt-[230px] max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
       id="scene">
       {/* <Image
         src={bitcoinShape}
@@ -119,15 +120,18 @@ const HeroContact = () => {
         <div className="relative z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
           <FadeUpAnimation className="lg:mb-50 col-span-12 mb-15 text-center">
             {/* <p className="mb-8 font-medium uppercase max-lg:mb-4">Effortless wallet</p> */}
-            <h1 className="mb-12 max-md:mb-8">Apply Online in Minutes</h1>
-            <h3 className="mb-12 max-md:mb-8">Create An Account and Get an Initial Estimate</h3>
+            <h1 className=" font-Sansita text-6xl text-white md:text-8xl">APPLY ONLINE IN </h1>
+            <h1 className="font-Sansita mb-8 text-6xl text-white max-md:mb-6 md:text-8xl">MINUTES</h1>
+            <h3 className="mb-2 text-white text-[20px]">You will automatically get an initial estimate of the amount your</h3>
+            <h3 className="mb-12 text-white max-md:mb-8 text-[20px]">business may receive.</h3>
+
             <div className="relative z-10 mx-auto max-w-[850px]">
               <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 max-lg:max-w-full max-md:hidden">
                 <div className="h-[442px] w-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
                 <div className="-ml-[170px] h-[442px] w-[442px] rounded-full bg-primary-200/25 blur-[145px]"></div>
                 <div className="-ml-[170px] h-[442px] w-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
               </div>
-              <div className=" rounded-medium bg-white p-2.5 shadow-nav  dark:bg-dark-200">
+              <div className="rounded-medium bg-white p-2.5 shadow-nav  dark:bg-dark-200">
                 <div className="rounded border border-dashed border-gray-100 bg-white p-12 dark:border-borderColor-dark dark:bg-dark-200 max-md:p-5  ">
                   <form action={saveForm}>
                     <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
@@ -135,7 +139,7 @@ const HeroContact = () => {
                         <label
                           htmlFor="firstName"
                           className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
-                          First name
+                          First Name
                         </label>
                         <input
                           type="text"
@@ -149,7 +153,7 @@ const HeroContact = () => {
                         <label
                           htmlFor="lastName"
                           className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-paragraph dark:text-white">
-                          Last name
+                          Last Name
                         </label>
                         <input
                           type="text"
