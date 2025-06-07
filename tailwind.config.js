@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { Sansita } = require('next/font/google')
+const { Sansita, Poppins } = require('next/font/google')
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
@@ -22,7 +22,8 @@ module.exports = {
         Inter: ["'Inter', sans-serif"],
         jakarta_sans: ["'Plus Jakarta Sans', sans-serif"],
         playfair: ["'Playfair Display', serif"],
-        Sansita:["'Sansita','serif'"]
+        Sansita: ["'Sansita','serif'"],
+        Poppins: ["'Poppins','serif'"],
       },
       colors: {
         primary: {

@@ -1,7 +1,7 @@
 import { Behance, Facebook, Github, LinkedIn } from './svgImages'
 export const FooterData = {
-  logo: '/images/logo.png',
-  logoDark: '/images/logo-dark.png',
+  logo: '/images/White-logo.svg',
+  logoDark: '/images/White-logo.svg',
   footerText: 'Business financing with simple steps.',
   copyright: `${new Date().getFullYear()} Aplio. All Rights Reserved`,
   email: 'info@example.com',
@@ -84,22 +84,32 @@ export const FooterData = {
   socialLinks: [
     {
       id: 1,
-      name: <Facebook />,
+      name: "facebook",
       link: '#',
     },
     {
       id: 2,
-      name: <Github />,
+      name: "instagram",
       link: '#',
     },
     {
       id: 3,
-      name: <LinkedIn />,
+      name: "linkdin",
       link: '#',
     },
     {
       id: 4,
-      name: <Behance />,
+      name: "youtube",
+      link: '#',
+    },
+      {
+      id: 5,
+      name: "spotify",
+      link: '#',
+    },
+      {
+      id: 6,
+      name: "tiktok",
       link: '#',
     },
   ],

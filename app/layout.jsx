@@ -1,8 +1,6 @@
-import ThemeSwitcher from '@/components/theme/ThemeSwitcher'
 import '@/scss/theme.scss'
 import { cn } from '@/utils/cn'
-import { ThemeModeProvider } from '@/utils/ThemeModeProvider'
-import { Inter, Playfair_Display, Plus_Jakarta_Sans, Sansita } from 'next/font/google'
+import { Inter, Poppins, Sansita } from 'next/font/google'
 import PropTypes from 'prop-types'
 
 const inter = Inter({
@@ -12,20 +10,14 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
 })
-// const jakarta_sans = Plus_Jakarta_Sans({
-//   weight: ['200', '300', '400', '500', '600', '700', '800'],
-//   style: ['normal'],
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-jakarta_sans',
-// })
-// const playfair = Playfair_Display({
-//   weight: ['600'],
-//   style: ['normal'],
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-playfair',
-// })
+
+const poppins = Poppins({
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+})
 
 const sansita = Sansita({
   weight: ['700'],
@@ -34,8 +26,6 @@ const sansita = Sansita({
   display: 'swap',
   variable: '--font-sansita',
 })
-
-
 
 export const metadata = {
   title: {
@@ -53,7 +43,8 @@ export default function RootLayout({ children }) {
         className={cn(
           'relative overflow-x-hidden bg-white text-base antialiased dark:bg-dark-300',
           inter.variable,
-            sansita.variable,
+          sansita.variable,
+          poppins.variable,
           // jakarta_sans.variable,
           // playfair.variable,
         )}>

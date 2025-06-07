@@ -1,14 +1,23 @@
 'use client'
 import { cn } from '@/utils/cn'
 import PricingCards from './PricingCards'
+import Image from 'next/image'
 
 const Pricing = ({ className = 'pt-150', showPricingText = true, largeTitle = false, pricingDescription = false }) => {
   return (
     <section className={cn('relative -z-0 overflow-hidden bg-white pb-150 dark:bg-dark-300 max-md:mb-25', className)}>
       <div className="container">
+      <Image src="/images/icons/line-break.svg" alt="border" width={1000} height={5} className="text-white w-full mb-16" />
+
         <div className={`${largeTitle ? 'max-w-[900px]' : 'max-w-[475px]'} mx-auto mb-12 text-center`}>
           <div className={cn(showPricingText ? '' : 'hidden')}>
-            <h2>We Know Business Funding</h2>
+            <h2 className="text-[#213468]">
+              We Know{' '}
+              <span className="bg-gradient-to-r from-[#213468] to-[#75bfb8] bg-clip-text text-transparent">
+                Business
+              </span>{' '}
+              Funding
+            </h2>
             <span className="my-2 text-[#FA8331]">Your business is unique.</span>
             <span className="mb-3">We get small business and have several financing options.</span>
             {largeTitle ? (
@@ -42,6 +51,7 @@ const Pricing = ({ className = 'pt-150', showPricingText = true, largeTitle = fa
         </div>
         {/* Pricing Cards */}
         <PricingCards version={false} />
+         <Image src="/images/icons/line-break-btm.svg" alt="border" width={1000} height={5} className="text-white w-full mt-24" />
       </div>
     </section>
   )

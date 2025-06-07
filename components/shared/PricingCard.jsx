@@ -1,5 +1,6 @@
 'use client'
 import { cn } from '@/utils/cn'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const PricingCard = ({ price, isAnnual }) => {
@@ -19,7 +20,9 @@ const PricingCard = ({ price, isAnnual }) => {
               </span>
             </div>
           )} */}
-          <span className="my-6 h-[80px] w-[90px] rounded border text-center">Icon</span>
+          <div className="mb-8 w-fit rounded bg-[#eaf5f4] p-2 px-3 text-center">
+            <Image src={`/images/icons/${price.icon}.svg`} alt="Background" width={60} height={65} className="" />
+          </div>{' '}
           <h3 className="mb-8 text-3xl text-[#213468]">{price.title}</h3>
           <p className="text-lg">{price.desc}</p>
           <p className="mb-6 border-b pb-6 text-lg font-bold text-[#213468]">{price.paraDesc}</p>
@@ -38,7 +41,6 @@ const PricingCard = ({ price, isAnnual }) => {
               <p>Per Year</p>
             </div>
           )} */}
-
           <ul className=" after:bg-[url(/images/banking/border.svg')] relative after:absolute after:-top-12 after:h-0.5 after:w-full after:bg-full after:bg-center after:bg-no-repeat dark:after:bg-[url('/images/banking/border-dark.svg')]">
             {price.priceList.map((items, i) => (
               <li className="mb-6 flex items-center gap-3.5 border-b pb-6" key={i}>
@@ -50,11 +52,11 @@ const PricingCard = ({ price, isAnnual }) => {
                     className="fill-white"
                   />
                 </svg>
-                <span>{items.name}</span><span className='font-bold text-[#213468]'>{items.highlight}</span>
+                <span>{items.name}</span>
+                <span className="font-bold text-[#213468]">{items.highlight}</span>
               </li>
             ))}
           </ul>
-
           {/* {price.featured ? (
             <Link href="/contact" className="btn w-full py-3 text-center">
               Get Started Now

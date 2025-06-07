@@ -47,15 +47,20 @@ const CoreFeature = () => {
     // },
   ]
   return (
-    <section className="relative pt-150 ">
-    {/* <section className="relative mt-[1100px] md:mt-[20%]"> */}
+    <section className="relative pt-[200px] lg:pt-[310px]">
+      {/* <section className="relative mt-[1100px] md:mt-[20%]"> */}
 
       <div className="absolute left-0 right-0 top-150 h-full w-full md:hidden"></div>
       <div className="container">
         <div className="mx-auto mb-12 max-w-[810px] text-center">
           <p className=" text-[#FA8331]">About Our Most Popular Product</p>
-          <h2>Revenue-Based Financing</h2>
-          <h2>Fast and Flexible Financing For Your Business</h2>
+          <h2 className="text-[#213468]">Revenue-Based Financing</h2>
+          <h2 className="text-[#213468]">
+            <span className="bg-gradient-to-r from-[#213468] to-[#75bfb8] bg-clip-text text-transparent">
+              Fast And Flexible{' '}
+            </span>{' '}
+            Financing For Your Business
+          </h2>
         </div>
 
         <div className="relative z-10">
@@ -119,29 +124,64 @@ const CoreFeature = () => {
               ))}
             </div>
           </div> */}
-          <div className='flex md:flex-row md:justify-between flex-col grid-cols-2 gap-5 w-full h-full bg-[#fff]'>
-            <div className='border border-[#DFDFDF] p-10 rounded md:w-[40%] shadow-box'>
-              <span className='mb-8 mt-6 w-[89px] h-[86px] border text-center rounded'>Icon</span>
-              <h3 className='mb-6 text-4xl'>Apply Online in Minutes</h3>
-              <p className='mb-6 text-xl'>Apply for funding using our award-winning platform. </p>
-              <Link href="./" className='font-semibold text-[#213468]'>Learn how it works? </Link>
+          <div className="flex h-full w-full grid-cols-2 flex-col gap-5 bg-[#fff] md:flex-row md:justify-between">
+            <div className="rounded border border-[#DFDFDF] p-10 shadow-box md:w-[40%]">
+              <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
+              <Image
+                src="/images/icons/time.svg"
+                alt="Background"
+                width={60}
+                height={65}
+                className=""
+              />
+              </div>
+              <h3 className="mb-6 text-4xl">Apply Online in Minutes</h3>
+              <p className="mb-6 text-xl">Apply for funding using our award-winning platform. </p>
+              <Link href="./" className="font-semibold text-[#213468]">
+                Learn how it works? 
+              </Link>
             </div>
-            <div className='flex flex-col gap-5 md:w-[60%] h-full'>
-
-              <div className='border border-[#DFDFDF] rounded p-10 flex gap-6 items-start text-white bg-[#75BFB8] w-full shadow-box'>
-                 <span className='w-[12%] h-[86px] border text-center rounded'>Icon</span>
-              <div className='w-[88%]'><h3 className='mb-3 text-white'>Fast Prequalification</h3>
-              <p className='mb-3 text-white text-xl text-wrap'>Create your Biz2Credit account and see an initial estimate of how much Revenue-Based Financing you could qualify for </p>
-              <Link href="./" className='font-semibold text-white'>Subject to additional review?</Link></div>
+            <div className="flex h-full flex-col gap-5 md:w-[60%]">
+              <div className="md:flex w-full items-start gap-6 rounded border border-[#DFDFDF] bg-[#75BFB8] p-10 text-white shadow-box">
+                <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
+              <Image
+                src="/images/icons/time.svg"
+                alt="Background"
+                width={60}
+                height={65}
+                className=""
+              />
+              </div>
+                <div className="w-[88%]">
+                  <h3 className="mb-3 text-white">Fast Prequalification</h3>
+                  <p className="mb-3 text-wrap text-xl text-white">
+                    Create your Biz2Credit account and see an initial estimate of how much Revenue-Based Financing you
+                    could qualify for 
+                  </p>
+                  <Link href="./" className="font-semibold text-white">
+                    Subject to additional review?
+                  </Link>
+                </div>
               </div>
 
-              <div className='border border-[#DFDFDF] rounded p-10 flex gap-6 items-start shadow-box'>
-                 <span className='w-[12%] h-[86px] border text-center rounded'>Icon</span>
-              <div className='w-[88%]'><h3 className='mb-3'>Works for Most Business Needs</h3>
-              <p className='mb-3 text-xl text-wrap'>Helping business owners like you fund what's next. </p>
-              <Link href="./" className='font-semibold text-[#213468]'>Learn about Revenue-Based Financing? </Link></div>
+              <div className="md:flex items-start gap-6 rounded border border-[#DFDFDF] p-10 shadow-box">
+                <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
+              <Image
+                src="/images/icons/hand-bag.svg"
+                alt="Background"
+                width={60}
+                height={65}
+                className=""
+              />
               </div>
-              
+                <div className="w-[88%]">
+                  <h3 className="mb-3">Works for Most Business Needs</h3>
+                  <p className="mb-3 text-wrap text-xl">Helping business owners like you fund what's next. </p>
+                  <Link href="./" className="font-semibold text-[#213468]">
+                    Learn about Revenue-Based Financing? 
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
           {/* <div class="grid grid-flow-col grid-rows-3 gap-4">
