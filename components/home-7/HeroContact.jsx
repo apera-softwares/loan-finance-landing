@@ -102,7 +102,7 @@ const HeroContact = () => {
       <div className="container">
         <div className="relative top-56 z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
           <FadeUpAnimation className="lg:mb-50 col-span-12 mb-15 text-center">
-            <h1 className=" font-Sansita text-6xl text-white md:text-8xl">APPLY ONLINE IN </h1>
+            <h1 className="font-Sansita text-6xl text-white md:text-8xl">APPLY ONLINE IN</h1>
             <h1 className="mb-8 text-6xl text-white max-md:mb-6 md:text-8xl">
               <span className="font-Sansita">MINUTES</span>
             </h1>
@@ -118,8 +118,8 @@ const HeroContact = () => {
                 <div className="-ml-[170px] h-[442px] w-[442px] rounded-full bg-primary-200/25 blur-[145px]"></div>
                 <div className="-ml-[170px] h-[442px] w-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
               </div>
-              <div className="rounded-medium border border-black bg-white p-2.5 shadow-nav  dark:bg-dark-200">
-                <div className="rounded border-gray-100 bg-white p-12 dark:border-borderColor-dark dark:bg-dark-200 max-md:p-5  ">
+              <div className="rounded-medium border border-black bg-white p-2.5 shadow-nav dark:bg-dark-200">
+                <div className="rounded border-gray-100 bg-white p-12 dark:border-borderColor-dark dark:bg-dark-200 max-md:p-5">
                   <form action={saveForm}>
                     <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
                       <div className="max-md:col-span-full md:col-span-6">
@@ -135,7 +135,7 @@ const HeroContact = () => {
                           placeholder="Enter your first Name"
                           className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
                         />
-                        {errors.firstName && <p className="mt-1 text-sm text-red-500 text-start">{errors.firstName}</p>}
+                        {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>}
                       </div>
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
@@ -150,7 +150,7 @@ const HeroContact = () => {
                           placeholder="Enter your last Name"
                           className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
                         />
-                        {errors.lastName && <p className="mt-1 text-sm text-red-500 text-start">{errors.lastName}</p>}
+                        {errors.lastName && <p className="mt-1 text-start text-sm text-red-500">{errors.lastName}</p>}
                       </div>
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
@@ -163,9 +163,9 @@ const HeroContact = () => {
                           name="email"
                           id="email"
                           placeholder="Enter your email address"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
                         />
-                        {errors.email && <p className="mt-1 text-sm text-red-500 text-start">{errors.email}</p>}
+                        {errors.email && <p className="mt-1 text-start text-sm text-red-500">{errors.email}</p>}
                       </div>
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
@@ -178,9 +178,9 @@ const HeroContact = () => {
                           name="phone"
                           id="phone"
                           placeholder="Enter your phone"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
                         />
-                        {errors.phone && <p className="mt-1 text-sm text-red-500 text-start">{errors.phone}</p>}
+                        {errors.phone && <p className="mt-1 text-start text-sm text-red-500">{errors.phone}</p>}
                       </div>
                       <div className="max-md:col-span-full md:col-span-6">
                         <label
@@ -191,7 +191,7 @@ const HeroContact = () => {
                         <select
                           name="amountNeeded"
                           id="amountNeeded"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Select Amount</option>
                           <option value={10000}>Under {USDollar.format(10000)}</option>
                           <option value={20000}>
@@ -207,12 +207,13 @@ const HeroContact = () => {
                             {USDollar.format(50000)} - {USDollar.format(100000)}
                           </option>
                           <option value={300000}>
-                            {' '}
                             {USDollar.format(100000)} - {USDollar.format(300000)}
                           </option>
                           <option value={300001}>More than {USDollar.format(300000)}</option>
                         </select>
-                        {errors.amountNeeded && <p className="mt-1 text-sm text-red-500 text-start">{errors.amountNeeded}</p>}
+                        {errors.amountNeeded && (
+                          <p className="mt-1 text-start text-sm text-red-500">{errors.amountNeeded}</p>
+                        )}
                       </div>
 
                       <div className="max-md:col-span-full md:col-span-6">
@@ -224,7 +225,7 @@ const HeroContact = () => {
                         <select
                           name="annualRevenue"
                           id="annualRevenue"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Select Annual Revenue</option>
                           <option value={10000}>Under {USDollar.format(10000)}</option>
                           <option value={20000}>
@@ -244,7 +245,9 @@ const HeroContact = () => {
                           </option>
                           <option value={300001}>More than {USDollar.format(300000)}</option>
                         </select>
-                        {errors.annualRevenue && <p className="mt-1 text-sm text-red-500 text-start">{errors.annualRevenue}</p>}
+                        {errors.annualRevenue && (
+                          <p className="mt-1 text-start text-sm text-red-500">{errors.annualRevenue}</p>
+                        )}
                       </div>
 
                       <div className="max-md:col-span-full md:col-span-6">
@@ -256,7 +259,7 @@ const HeroContact = () => {
                         <select
                           name="timeInBusiness"
                           id="timeInBusiness"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Time in business</option>
                           <option value={6}>Less than 6 months</option>
                           <option value={12}>6-12 Months</option>
@@ -266,7 +269,9 @@ const HeroContact = () => {
                           <option value={120}>5-10 Years</option>
                           <option value={121}>10+ Years</option>
                         </select>
-                        {errors.timeInBusiness && <p className="mt-1 text-sm text-red-500 text-start">{errors.timeInBusiness}</p>}
+                        {errors.timeInBusiness && (
+                          <p className="mt-1 text-start text-sm text-red-500">{errors.timeInBusiness}</p>
+                        )}
                       </div>
 
                       <div className="max-md:col-span-full md:col-span-6">
@@ -278,7 +283,7 @@ const HeroContact = () => {
                         <select
                           name="creditScore"
                           id="creditScore"
-                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light   outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                          className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                           <option value={0}>Select Credit Score</option>
                           <option value={550}>500-550</option>
                           <option value={600}>550-600</option>
@@ -287,7 +292,9 @@ const HeroContact = () => {
                           <option value={750}>700-750</option>
                           <option value={751}>Above 750</option>
                         </select>
-                        {errors.creditScore && <p className="mt-1 text-sm text-red-500 text-start">{errors.creditScore}</p>}
+                        {errors.creditScore && (
+                          <p className="mt-1 text-start text-sm text-red-500">{errors.creditScore}</p>
+                        )}
                       </div>
 
                       <div className="col-span-full mx-auto inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center shadow-[0px_0px_0px_3px_rgba(117,191,184,0.15)]">
@@ -301,8 +308,6 @@ const HeroContact = () => {
               </div>
             </div>
           </FadeUpAnimation>
-
-          {/* <Timer /> */}
         </div>
       </div>
     </section>
