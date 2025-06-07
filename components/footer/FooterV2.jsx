@@ -15,25 +15,25 @@ const FooterV2 = () => {
         <div className="mb-4">
           <ul className="flex flex-wrap justify-center gap-4 text-base text-white">
             <li>
-              <Link href="/privacy" className="text-white font-Poppins">
+              <Link href="/privacy" className="font-Poppins text-white">
                 Privacy Policy
               </Link>
             </li>
             <span>|</span>
             <li>
-              <Link href="/terms" className="text-white font-Poppins">
+              <Link href="/terms" className="font-Poppins text-white">
                 Terms & Conditions
               </Link>
             </li>
             <span>|</span>
             <li>
-              <Link href="/legal" className="text-white font-Poppins">
+              <Link href="/legal" className="font-Poppins text-white">
                 Legal
               </Link>
             </li>
             <span>|</span>
             <li>
-              <Link href="/important-info" className="text-white font-Poppins">
+              <Link href="/important-info" className="font-Poppins text-white">
                 Important Information
               </Link>
             </li>

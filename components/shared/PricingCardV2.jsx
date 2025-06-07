@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const PricingCardV2 = ({ price, isAnnual }) => {
   return (
-    <div className='md:w-1/2 w-full'>
+    <div className="w-full md:w-1/2">
       <div className="rounded-medium bg-white p-2.5 shadow-box dark:bg-dark-200 ">
         <div
           className={cn(

@@ -1,6 +1,5 @@
 'use client'
 import Pricing from '@/data/pricing'
-import PricingBackground from './PricingBackground'
 import PricingCard from './PricingCard'
 import PricingCardV2 from './PricingCardV2'
 import { cn } from '@/utils/cn'
@@ -12,10 +11,9 @@ const PricingCards = ({ isAnnual, version }) => {
       {/* <PricingBackground /> */}
       <div
         className={cn(
-          ' flex content-center items-center gap-6 max-lg:flex-col max-md:z-10 w-full ',
+          ' flex w-full content-center items-center gap-6 max-lg:flex-col max-md:z-10 ',
           version ? 'pb-12' : '',
         )}>
-        
         {version ? (
           <>
             {PricingData.map((price) => (

@@ -1,7 +1,6 @@
 'use client'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const PricingCard = ({ price, isAnnual }) => {
   console.log(isAnnual)

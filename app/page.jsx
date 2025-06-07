@@ -19,8 +19,8 @@ export default function Home() {
         <CoreFeature />
         <Pricing />
         <MembersCounter />
-        <Awards/>
-        <PitchSection/>
+        <Awards />
+        <PitchSection />
         {/* <Rating /> */}
       </main>
       <FooterV2 />

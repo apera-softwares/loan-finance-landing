@@ -69,7 +69,9 @@ const HeroContact = () => {
         <div className="relative top-56 z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
           <FadeUpAnimation className="lg:mb-50 col-span-12 mb-15 text-center">
             <h1 className=" font-Sansita text-6xl text-white md:text-8xl">APPLY ONLINE IN </h1>
-            <h1 className="mb-8 font-Sansita text-6xl text-white max-md:mb-6 md:text-8xl">MINUTES</h1>
+            <h1 className="mb-8 text-6xl text-white max-md:mb-6 md:text-8xl">
+              <span className="font-Sansita">MINUTES</span>
+            </h1>
 
             <h3 className="mb-2 text-[20px] text-white">
               You will automatically get an initial estimate of the amount your

@@ -1,9 +1,8 @@
-import { FaStar } from 'react-icons/fa'
 import Award from '../../public/images/award-section/awards.png'
 import Image from 'next/image'
 
 const Rating = () => {
-  const PaymentRatingData = [
+  /* const PaymentRatingData = [
     {
       id: 1,
       rating: 4.7,
@@ -22,14 +21,14 @@ const Rating = () => {
       name: 'Trustpilot',
       desc: 'Top Payment Company',
     },
-  ]
+  ] */
   return (
     <section className="my-[140px] bg-[#F0FFFF] py-[140px]">
       <div className="container">
         <div className="">
           <div className="text-center">
             <h2 className="text-[#75BFB8]">Awards & Recognition</h2>
-            <h2 className="text-[#213468]  mb-8">For Biz2Credit Funding</h2>
+            <h2 className="mb-8  text-[#213468]">For Biz2Credit Funding</h2>
             <Image
               src={Award}
               alt="integartion image/award.png"

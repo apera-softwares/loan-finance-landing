@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const CoreFeature = () => {
-  const CoreFeatures = [
+  /* const CoreFeatures = [
     {
       id: 1,
       title: 'Apply Online in Minutes',
@@ -24,28 +24,28 @@ const CoreFeature = () => {
       iconDark: '/images/payment/inventory-dark.svg',
       desc: "Helping business owners like you fund what's next.",
     },
-    // {
-    //   id: 4,
-    //   title: 'Organized Expense',
-    //   iconLight: '/images/payment/expens.svg',
-    //   iconDark: '/images/payment/expens-dark.svg',
-    //   desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
-    // },
-    // {
-    //   id: 5,
-    //   title: 'Organize Receipts',
-    //   iconLight: '/images/payment/receipts.svg',
-    //   iconDark: '/images/payment/receipts-dark.svg',
-    //   desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
-    // },
-    // {
-    //   id: 6,
-    //   title: 'Mobile App',
-    //   iconLight: '/images/payment/app.svg',
-    //   iconDark: '/images/payment/app-dark.svg',
-    //   desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
-    // },
-  ]
+    {
+      id: 4,
+      title: 'Organized Expense',
+      iconLight: '/images/payment/expens.svg',
+      iconDark: '/images/payment/expens-dark.svg',
+      desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
+    },
+    {
+      id: 5,
+      title: 'Organize Receipts',
+      iconLight: '/images/payment/receipts.svg',
+      iconDark: '/images/payment/receipts-dark.svg',
+      desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
+    },
+    {
+      id: 6,
+      title: 'Mobile App',
+      iconLight: '/images/payment/app.svg',
+      iconDark: '/images/payment/app-dark.svg',
+      desc: 'The prevailing view asumed lorem ipsum was born as nonsense text.',
+    },
+  ] */
   return (
     <section className="relative pt-[200px] lg:pt-[310px]">
       {/* <section className="relative mt-[1100px] md:mt-[20%]"> */}
@@ -126,37 +126,25 @@ const CoreFeature = () => {
           </div> */}
           <div className="flex h-full w-full grid-cols-2 flex-col gap-5 bg-[#fff] md:flex-row md:justify-between">
             <div className="rounded border border-[#DFDFDF] p-10 shadow-box md:w-[40%]">
-              <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
-              <Image
-                src="/images/icons/time.svg"
-                alt="Background"
-                width={60}
-                height={65}
-                className=""
-              />
+              <div className="mb-8 w-fit rounded bg-[#eaf5f4] p-3 px-4 text-center">
+                <Image src="/images/icons/time.svg" alt="Background" width={60} height={65} className="" />
               </div>
               <h3 className="mb-6 text-4xl">Apply Online in Minutes</h3>
-              <p className="mb-6 text-xl">Apply for funding using our award-winning platform. </p>
+              <p className="mb-6 text-xl">Apply for funding using our award-winning platform.</p>
               <Link href="./" className="font-semibold text-[#213468]">
-                Learn how it works? 
+                Learn how it works?
               </Link>
             </div>
             <div className="flex h-full flex-col gap-5 md:w-[60%]">
-              <div className="md:flex w-full items-start gap-6 rounded border border-[#DFDFDF] bg-[#75BFB8] p-10 text-white shadow-box">
-                <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
-              <Image
-                src="/images/icons/time.svg"
-                alt="Background"
-                width={60}
-                height={65}
-                className=""
-              />
-              </div>
+              <div className="w-full items-start gap-6 rounded border border-[#DFDFDF] bg-[#75BFB8] p-10 text-white shadow-box md:flex">
+                <div className="mb-8 w-fit rounded bg-[#eaf5f4] p-3 px-4 text-center">
+                  <Image src="/images/icons/time.svg" alt="Background" width={60} height={65} className="" />
+                </div>
                 <div className="w-[88%]">
                   <h3 className="mb-3 text-white">Fast Prequalification</h3>
                   <p className="mb-3 text-wrap text-xl text-white">
                     Create your Biz2Credit account and see an initial estimate of how much Revenue-Based Financing you
-                    could qualify for 
+                    could qualify for.
                   </p>
                   <Link href="./" className="font-semibold text-white">
                     Subject to additional review?
@@ -164,21 +152,15 @@ const CoreFeature = () => {
                 </div>
               </div>
 
-              <div className="md:flex items-start gap-6 rounded border border-[#DFDFDF] p-10 shadow-box">
-                <div className='mb-8 p-3 px-4 rounded text-center bg-[#eaf5f4] w-fit'>
-              <Image
-                src="/images/icons/hand-bag.svg"
-                alt="Background"
-                width={60}
-                height={65}
-                className=""
-              />
-              </div>
+              <div className="items-start gap-6 rounded border border-[#DFDFDF] p-10 shadow-box md:flex">
+                <div className="mb-8 w-fit rounded bg-[#eaf5f4] p-3 px-4 text-center">
+                  <Image src="/images/icons/hand-bag.svg" alt="Background" width={60} height={65} className="" />
+                </div>
                 <div className="w-[88%]">
                   <h3 className="mb-3">Works for Most Business Needs</h3>
-                  <p className="mb-3 text-wrap text-xl">Helping business owners like you fund what's next. </p>
+                  <p className="mb-3 text-wrap text-xl">Helping business owners like you fund what&lsquo;s next.</p>
                   <Link href="./" className="font-semibold text-[#213468]">
-                    Learn about Revenue-Based Financing? 
+                    Learn about Revenue-Based Financing?
                   </Link>
                 </div>
               </div>
@@ -187,8 +169,8 @@ const CoreFeature = () => {
           {/* <div class="grid grid-flow-col grid-rows-3 gap-4">
   <div class="row-span-3 p-6 border"> <span className='my-4'>Icon</span>
               <h4 className='mb-4'>Apply Online in Minutes</h4>
-              <p className='mb-4'>Apply for funding using our award-winning platform. </p>
-              <Link href="./">Learn how it works? </Link></div>
+              <p className='mb-4'>Apply for funding using our award-winning platform.</p>
+              <Link href="./">Learn how it works?</Link></div>
   <div class="col-span-2  border">02</div>
   <div class="col-span-2 row-span-2 border">03</div>
 </div> */}

@@ -56,13 +56,13 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
 
           <ul className="ml-auto flex items-center [&>*:not(:last-child)]:me-2.5">
             <li className="flex items-center max-lg:hidden">
-              <Link href={menuData.btnLink} className="btn-navbar btn-sm flex gap-2 items-center rounded-full bg-white">
+              <Link href={menuData.btnLink} className="btn-navbar btn-sm flex items-center gap-2 rounded-full bg-white">
                 Login
                 <Image src="/images/icons/Shape.svg" alt="Background" width={12} height={12} />
               </Link>
             </li>
             <li className="max-lg:inline-block lg:hidden">
-             <Link href={menuData.btnLink} className="btn-navbar btn-sm flex gap-1 items-center rounded-full bg-white">
+              <Link href={menuData.btnLink} className="btn-navbar btn-sm flex items-center gap-1 rounded-full bg-white">
                 Login
                 <Image src="/images/icons/Shape.svg" alt="Background" width={12} height={12} />
               </Link>

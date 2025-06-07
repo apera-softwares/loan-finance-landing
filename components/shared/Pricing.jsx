@@ -7,7 +7,13 @@ const Pricing = ({ className = 'pt-150', showPricingText = true, largeTitle = fa
   return (
     <section className={cn('relative -z-0 overflow-hidden bg-white pb-150 dark:bg-dark-300 max-md:mb-25', className)}>
       <div className="container">
-      <Image src="/images/icons/line-break.svg" alt="border" width={1000} height={5} className="text-white w-full mb-16" />
+        <Image
+          src="/images/icons/line-break.svg"
+          alt="border"
+          width={1000}
+          height={5}
+          className="mb-16 w-full text-white"
+        />
 
         <div className={`${largeTitle ? 'max-w-[900px]' : 'max-w-[475px]'} mx-auto mb-12 text-center`}>
           <div className={cn(showPricingText ? '' : 'hidden')}>
@@ -51,7 +57,13 @@ const Pricing = ({ className = 'pt-150', showPricingText = true, largeTitle = fa
         </div>
         {/* Pricing Cards */}
         <PricingCards version={false} />
-         <Image src="/images/icons/line-break-btm.svg" alt="border" width={1000} height={5} className="text-white w-full mt-24" />
+        <Image
+          src="/images/icons/line-break-btm.svg"
+          alt="border"
+          width={1000}
+          height={5}
+          className="mt-24 w-full text-white"
+        />
       </div>
     </section>
   )
