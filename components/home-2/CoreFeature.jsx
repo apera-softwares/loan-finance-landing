@@ -47,7 +47,7 @@ const CoreFeature = () => {
     },
   ] */
   return (
-    <section className="relative pt-[200px] lg:pt-[310px]">
+    <section className="relative pt-[280px] lg:pt-[400px]">
       {/* <section className="relative mt-[1100px] md:mt-[20%]"> */}
 
       <div className="absolute left-0 right-0 top-150 h-full w-full md:hidden"></div>
