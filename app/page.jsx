@@ -1,6 +1,7 @@
 import FooterV2 from '@/components/footer/FooterV2'
+import Awards from '@/components/home-2/Awards'
 import CoreFeature from '@/components/home-2/CoreFeature'
-import Rating from '@/components/home-2/Rating'
+import PitchSection from '@/components/home-2/PitchSection'
 import HeroContact from '@/components/home-7/HeroContact'
 import SecondaryNavbar from '@/components/navbar/SecondaryNavbar'
 import MembersCounter from '@/components/shared/MembersCounter'
@@ -18,7 +19,9 @@ export default function Home() {
         <CoreFeature />
         <Pricing />
         <MembersCounter />
-        <Rating />
+        <Awards/>
+        <PitchSection/>
+        {/* <Rating /> */}
       </main>
       <FooterV2 />
     </>

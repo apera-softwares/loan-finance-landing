@@ -37,7 +37,7 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
       <div
         className={cn(
           'fixed left-0  z-50 w-full bg-transparent transition-all duration-500 max-md:z-[500]',
-          sticky ? 'nav-sticky ' : '',
+          sticky ? 'nav-sticky bg-[#101832]' : '',
           !hideTopBar ? 'top-16' : 'top-8',
         )}>
         <nav className="container relative flex items-center">
@@ -56,13 +56,15 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
 
           <ul className="ml-auto flex items-center [&>*:not(:last-child)]:me-2.5">
             <li className="flex items-center max-lg:hidden">
-              <Link href={menuData.btnLink} className="btn btn-navbar btn-sm">
+              <Link href={menuData.btnLink} className="btn-navbar btn-sm flex gap-2 items-center rounded-full bg-white">
                 Login
+                <Image src="/images/icons/Shape.svg" alt="Background" width={12} height={12} />
               </Link>
             </li>
             <li className="max-lg:inline-block lg:hidden">
-              <Link href={menuData.btnLink} className="btn btn-navbar btn-sm">
+             <Link href={menuData.btnLink} className="btn-navbar btn-sm flex gap-1 items-center rounded-full bg-white">
                 Login
+                <Image src="/images/icons/Shape.svg" alt="Background" width={12} height={12} />
               </Link>
               {/* <button
                 className="mobile-menu-button relative flex size-10 items-center justify-center rounded-full bg-white outline-none dark:bg-dark-200"

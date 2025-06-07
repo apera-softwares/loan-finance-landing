@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 const PricingCardV2 = ({ price, isAnnual }) => {
   return (
-    <div>
-      <div className="rounded-medium bg-white p-2.5 shadow-box dark:bg-dark-200">
+    <div className='md:w-1/2 w-full'>
+      <div className="rounded-medium bg-white p-2.5 shadow-box dark:bg-dark-200 ">
         <div
           className={cn(
-            'rounded border border-dashed border-gray-100 p-8 dark:border-borderColor-dark max-md:p-5',
+            ' border-gray-100 p-8 dark:border-borderColor-dark max-md:p-5',
             price.featured && 'lg:px-8 lg:pb-15 lg:pt-3',
           )}>
           {price.featured && (
