@@ -50,21 +50,23 @@ const HeroContact = () => {
   }
 
   return (
-    <section
-      className="hero crypto-hero relative w-full bg-[url(/images/background/background.png)] bg-cover bg-center bg-no-repeat pt-[230px] max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
-      id="scene">
-      {/* <Image
-        src="/images/background/background.svg"
-        alt="Background"
-        fill
-        className="object-contain object-center z-0"
-        priority
-      /> */}
+    // <section
+    //   className="hero crypto-hero relative w-full bg-[url(/images/background/background.png)] bg-cover bg-center bg-no-repeat pt-[230px] max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
+    //   id="scene">
 
-      {/* <Image src="/images/background/background.png" alt="border" width={1000} height={500} className="text-white w-full mb-16" /> */}
+    <section
+      className="hero crypto-hero relative min-h-screen w-full max-lg:pb-25 max-lg:pt-[160px] max-md:pb-[70px]"
+      id="scene">
+      <Image
+        src="/images/background/background.png"
+        alt="border"
+        fill
+        className="absolute inset-0 -z-10 object-cover"
+        priority
+      />
 
       <div className="container">
-        <div className="relative top-32 z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
+        <div className="relative top-56 z-10 grid grid-cols-12 items-center gap-5 max-lg:gap-y-5">
           <FadeUpAnimation className="lg:mb-50 col-span-12 mb-15 text-center">
             <h1 className=" font-Sansita text-6xl text-white md:text-8xl">APPLY ONLINE IN </h1>
             <h1 className="mb-8 font-Sansita text-6xl text-white max-md:mb-6 md:text-8xl">MINUTES</h1>
