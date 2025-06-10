@@ -27,13 +27,17 @@ const sansita = Sansita({
   variable: '--font-sansita',
 })
 
+// export const metadata = {
+//   title: {
+//     default: 'Lending Square | Business Financing',
+//     template: '%s - Lending Square | Business Financing',
+//   },
+//   description:
+//     'Aplio is an exceptional Next js template tailored for SaaS landing websites. Embodying the essence of modern SaaS platforms.',
+// }
+
 export const metadata = {
-  title: {
-    default: 'Aplio - Aplio Sass Landing Page',
-    template: '%s - Aplio Sass Landing Page',
-  },
-  description:
-    'Aplio is an exceptional Next js template tailored for SaaS landing websites. Embodying the essence of modern SaaS platforms.',
+  title: 'Lending Square | Business Financing',
 }
 
 export default function RootLayout({ children }) {
