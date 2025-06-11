@@ -1,4 +1,8 @@
+'use client'
+import { BACKEND_API } from '@/api'
+import { plans } from '@/data/plansData'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 const StepOne = ({ onNext }) => {
   const USDollar = new Intl.NumberFormat('en-US', {
@@ -6,37 +10,95 @@ const StepOne = ({ onNext }) => {
     currency: 'USD',
   })
 
+  const [selectedPlans, setSelectedPlans] = useState([])
+  const [states, setStates] = useState([])
+  const [cities, setCities] = useState([])
+  const [formData, setFormData] = useState({
+    amountNeeded: '',
+    role: '',
+    businessName: '',
+    alternateBusinessName: '',
+    businessAddress: '',
+    phone: '',
+    stateId: '',
+    cityId: '',
+    pincode: '',
+    franchise: false,
+  })
+
+  const fetchStates = async () => {
+    try {
+      const res = await fetch(`${BACKEND_API}user/states`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Content-Type': 'application/json',
+        },
+      })
+      if (!res.ok) throw new Error('Failed to fetch states')
+      const data = await res.json()
+      setStates(data.data)
+    } catch (error) {
+      console.error('State Fetch Error:', error)
+    }
+  }
+
+  const fetchCities = async (stateId) => {
+    try {
+      const res = await fetch(`${BACKEND_API}user/city/${stateId}`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+          'Content-Type': 'application/json',
+        },
+      })
+      if (!res.ok) throw new Error('Failed to fetch cities')
+      const data = await res.json()
+      console.log(data.data, 'cities')
+      setCities(data.data)
+    } catch (error) {
+      console.error('City Fetch Error:', error)
+    }
+  }
+
+  useEffect(() => {
+    fetchStates()
+  }, [])
+
   return (
     <section className="bg-white pb-150 dark:bg-dark-300 max-md:pb-20">
       <div className="rounded border-gray-100 bg-white p-12 dark:border-borderColor-dark dark:bg-dark-200 max-md:p-5">
         <form
           onSubmit={(e) => {
             e.preventDefault()
+            const fullData = {
+              ...formData,
+              selectedPlans,
+            }
+            console.log('Submitted Data:', fullData)
             onNext()
           }}>
           <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
             <div className="flex h-36 justify-between gap-3 max-md:col-span-full md:col-span-12">
-              <div className=" flex w-1/5 flex-col items-center justify-center gap-2 rounded-xl border p-3">
-                <Image src="/images/icons/time.svg" alt="Background" width={40} height={40} className="" />
-                <span>Working Capital</span>
-              </div>
-              <div className=" flex w-1/5 flex-col items-center justify-center gap-2 rounded-xl border p-3">
-                <Image src="/images/icons/hand-bag.svg" alt="Background" width={40} height={40} className="" />
-                <span>Buy a Business</span>
-              </div>
-              <div className=" flex w-1/5 flex-col items-center justify-center gap-2 rounded-xl border p-3">
-                <Image src="/images/icons/hand-bag.svg" alt="Background" width={40} height={40} className="" />
-                <span>Buy Equipment or Inventory</span>
-              </div>
-              <div className=" flex w-1/5 flex-col items-center justify-center gap-2 rounded-xl border p-3">
-                <Image src="/images/icons/hand-bag.svg" alt="Background" width={40} height={40} className="" />
-                <span>Cover Payroll</span>
-              </div>
-              <div className=" flex w-1/5 flex-col items-center justify-center gap-2 rounded-xl border p-3">
-                <Image src="/images/icons/hand-bag.svg" alt="Background" width={40} height={40} className="" />
-                <span>Other</span>
-              </div>
+              {plans.map((plan) => {
+                const isSelected = selectedPlans.includes(plan.value)
+
+                return (
+                  <div
+                    key={plan.id}
+                    onClick={() =>
+                      setSelectedPlans((prev) =>
+                        prev.includes(plan.value) ? prev.filter((val) => val !== plan.value) : [...prev, plan.value],
+                      )
+                    }
+                    className={`flex w-1/5 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border p-3 ${
+                      isSelected ? 'border-emerald-500 bg-gray-50' : 'border-gray-300'
+                    }`}>
+                    <Image src={`/images/icons/${plan.icon}.svg`} alt="Plan" width={40} height={40} />
+                    <span>{plan.name}</span>
+                  </div>
+                )
+              })}
             </div>
+
             <div className="max-md:col-span-full md:col-span-4">
               <label
                 htmlFor="amountNeeded"
@@ -45,25 +107,12 @@ const StepOne = ({ onNext }) => {
               </label>
               <select
                 name="amountNeeded"
-                id="amountNeeded"
+                value={formData.amountNeeded}
+                onChange={(e) => setFormData({ ...formData, amountNeeded: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                 <option value={0}>Select Amount</option>
                 <option value={10000}>Under {USDollar.format(10000)}</option>
-                <option value={20000}>
-                  {USDollar.format(10000)} - {USDollar.format(20000)}
-                </option>
-                <option value={30000}>
-                  {USDollar.format(20000)} - {USDollar.format(30000)}
-                </option>
-                <option value={50000}>
-                  {USDollar.format(30000)} - {USDollar.format(50000)}
-                </option>
-                <option value={100000}>
-                  {USDollar.format(50000)} - {USDollar.format(100000)}
-                </option>
-                <option value={300000}>
-                  {USDollar.format(100000)} - {USDollar.format(300000)}
-                </option>
+
                 <option value={300001}>More than {USDollar.format(300000)}</option>
               </select>
               {/* {errors.amountNeeded && <p className="mt-1 text-start text-sm text-red-500">{errors.amountNeeded}</p>} */}
@@ -78,59 +127,60 @@ const StepOne = ({ onNext }) => {
               <select
                 name="role"
                 id="role"
+                value={formData.role}
+                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                 <option value="">Select Role</option>
                 <option value="owner">Owner</option>
                 <option value="advisor">Advisor</option>
-                <option value="employee">Employee</option>
-                <option value="board_member">Board Member</option>
-                <option value="other">Other</option>
               </select>
-              {/* {errors.annualRevenue && <p className="mt-1 text-start text-sm text-red-500">{errors.annualRevenue}</p>} */}
             </div>
 
             <div className="max-md:col-span-full md:col-span-4">
               <label
-                htmlFor="busniess_name"
+                htmlFor="businessName"
                 className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 Business Name
               </label>
               <input
                 type="text"
-                name="busniess_name"
-                id="busniess_name"
+                name="businessName"
+                id="businessName"
+                value={formData.businessName}
+                onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
               />
-              {/* {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>} */}
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
-                htmlFor="alternate_busniess_name"
+                htmlFor="alternateBusinessName"
                 className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 Alternate Name or DBA (Optional)
               </label>
               <input
                 type="text"
-                name="alternate_busniess_name"
-                id="alternate_busniess_name"
+                name="alternateBusinessName"
+                id="alternateBusinessName"
+                value={formData.alternateBusinessName}
+                onChange={(e) => setFormData({ ...formData, alternateBusinessName: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
               />
-              {/* {errors.lastName && <p className="mt-1 text-start text-sm text-red-500">{errors.lastName}</p>} */}
             </div>
 
             <div className="max-md:col-span-full md:col-span-4">
               <label
-                htmlFor="busniess_address"
+                htmlFor="businessAddress"
                 className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 Business Address
               </label>
               <input
                 type="text"
-                name="busniess_address"
-                id="busniess_address"
+                name="businessAddress"
+                id="businessAddress"
+                value={formData.businessAddress}
+                onChange={(e) => setFormData({ ...formData, businessAddress: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
               />
-              {/* {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>} */}
             </div>
 
             <div className="max-md:col-span-full md:col-span-4">
@@ -143,10 +193,11 @@ const StepOne = ({ onNext }) => {
                 type="text"
                 name="phone"
                 id="phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="Enter your phone"
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
               />
-              {/* {errors.phone && <p className="mt-1 text-start text-sm text-red-500">{errors.phone}</p>} */}
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
@@ -154,13 +205,21 @@ const StepOne = ({ onNext }) => {
                 className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 State
               </label>
-              <input
-                type="text"
-                name="busniess_name"
-                id="busniess_name"
-                className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
-              />
-              {/* {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>} */}
+              <select
+                name="stateId"
+                value={formData.stateId}
+                onChange={(e) => {
+                  setFormData({ ...formData, stateId: e.target.value, cityId: '' })
+                  fetchCities(e.target.value)
+                }}
+                className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                <option value="">Select State</option>
+                {states.map((state) => (
+                  <option key={state.id} value={state.id}>
+                    {state.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
@@ -168,13 +227,18 @@ const StepOne = ({ onNext }) => {
                 className="mb-2 block text-left font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 City
               </label>
-              <input
-                type="text"
-                name="busniess_name"
-                id="busniess_name"
-                className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
-              />
-              {/* {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>} */}
+              <select
+                name="cityId"
+                value={formData.cityId}
+                onChange={(e) => setFormData({ ...formData, cityId: e.target.value })}
+                className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
+                <option value="">Select City</option>
+                {cities.map((city) => (
+                  <option key={city.id} value={city.id}>
+                    {city.city}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
@@ -186,9 +250,10 @@ const StepOne = ({ onNext }) => {
                 type="text"
                 name="pincode"
                 id="pincode"
+                value={formData.pincode}
+                onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
               />
-              {/* {errors.firstName && <p className="mt-1 text-start text-sm text-red-500">{errors.firstName}</p>} */}
             </div>
 
             <div className="flex items-end max-md:col-span-full md:col-span-4">
@@ -196,11 +261,13 @@ const StepOne = ({ onNext }) => {
                 type="checkbox"
                 name="franchise"
                 id="franchise"
+                checked={formData.franchise}
+                onChange={(e) => setFormData({ ...formData, franchise: e.target.checked })}
                 className="h-6 w-6 rounded border border-black bg-white text-primary focus:ring-primary dark:border-borderColor-dark dark:bg-dark-200 dark:ring-offset-gray-800 dark:focus:ring-primary"
               />
               <label
                 htmlFor="franchise"
-                className=" ml-3 block font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
+                className="ml-3 block font-jakarta_sans text-sm font-medium text-[#213468] dark:text-white">
                 My business is part of a franchise
               </label>
             </div>

@@ -2,8 +2,8 @@
 import Image from 'next/image'
 import FadeUpAnimation from '../animations/FadeUpAnimation'
 import { useState } from 'react'
+import { BACKEND_API } from '@/api'
 
-const API_BASE_URL = 'http://209.182.232.11:4049'
 
 const USDollar = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -64,7 +64,7 @@ const HeroContact = () => {
       creditScore: parseInt(creditScore),
     }
 
-    fetch(`${API_BASE_URL}/lead`, {
+    fetch(`${BACKEND_API}/lead`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -31,15 +31,11 @@ const Page = () => {
                 key={item.step}
                 className={`flex items-center space-x-2.5 ${
                   step === item.step ? 'text-primary' : 'text-gray-500 dark:text-gray-400'
-                } rtl:space-x-reverse`}
-              >
+                } rtl:space-x-reverse`}>
                 <span
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border ${
-                    step === item.step
-                      ? 'border-primary bg-primary text-white'
-                      : 'border-gray-500 dark:border-gray-400'
-                  }`}
-                >
+                    step === item.step ? 'border-primary bg-primary text-white' : 'border-gray-500 dark:border-gray-400'
+                  }`}>
                   {item.step}
                 </span>
                 <span>
@@ -56,6 +52,7 @@ const Page = () => {
             {step === 3 && <StepThree onNext={handleNext} onPrev={handlePrev} />}
             {step === 4 && <StepFour onPrev={handlePrev} />}
           </div>
+          
         </div>
       </main>
       <FooterV2 />
