@@ -205,7 +205,7 @@ const StepFour = () => {
         // Store leadId in localStorage
 
         toast.success('Successfully Saved Owner Information')
-        router('/success-form-sub')
+        router.push('/success-form-sub')
       } else {
         console.error('step 4  creation failed:', data)
         alert(`Failed to save step 4  application: ${data.msg || 'Unknown error'}`)
@@ -332,7 +332,7 @@ const StepFour = () => {
                     name="corporateStateId"
                     value={formData.corporateStateId}
                     onChange={(e) => {
-                      setFormData({ ...formData, stateId: e.target.value, corporateCityId: '' })
+                      setFormData({ ...formData, corporateStateId: e.target.value, corporateCityId: '' })
                       fetchCorCities(e.target.value)
                     }}
                     className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
