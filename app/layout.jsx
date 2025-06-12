@@ -2,6 +2,7 @@ import '@/scss/theme.scss'
 import { cn } from '@/utils/cn'
 import { Inter, Poppins, Sansita } from 'next/font/google'
 import PropTypes from 'prop-types'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
         )}>
         {/* <ThemeModeProvider> */}
         {/* <ThemeSwitcher /> */}
+        <Toaster position="top-center" reverseOrder={false} />
         {children}
         {/* </ThemeModeProvider> */}
       </body>

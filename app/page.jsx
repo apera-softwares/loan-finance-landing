@@ -6,6 +6,8 @@ import HeroContact from '@/components/home-7/HeroContact'
 import SecondaryNavbar from '@/components/navbar/SecondaryNavbar'
 import MembersCounter from '@/components/shared/MembersCounter'
 import Pricing from '@/components/shared/Pricing'
+import { Toaster } from 'react-hot-toast'
+
 export const metadata = {
   title: 'Lending Square | Business Financing',
 }
@@ -15,6 +17,7 @@ export default function Home() {
     <>
       <SecondaryNavbar hideTopBar />
       <main>
+
         <HeroContact />
         <CoreFeature />
         <Pricing />

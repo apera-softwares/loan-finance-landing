@@ -3,6 +3,7 @@ import { BACKEND_API } from '@/api'
 import { plans } from '@/data/plansData'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import toast from 'react-hot-toast'
 
 const StepOne = ({ onNext }) => {
   const USDollar = new Intl.NumberFormat('en-US', {
@@ -101,8 +102,8 @@ const StepOne = ({ onNext }) => {
         console.log('step 1 created successfully:', data)
 
         // Store leadId in localStorage
+        toast.success('Successfully Saved Funding Information')
 
-        alert('Your step 1  application is saved successfully. Our representative will contact you soon.')
         onNext()
       } else {
         console.error('step 1  creation failed:', data)

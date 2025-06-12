@@ -199,9 +199,10 @@ const StepFour = ({}) => {
         console.log('step 4 created successfully:', data)
 
         // Store leadId in localStorage
-        router('/')
+        
 
-        alert('Your step 4  application is saved successfully. Our representative will contact you soon.')
+        toast.success('Successfully Saved Owner Information')
+        router('/success-form-sub')
       } else {
         console.error('step 4  creation failed:', data)
         alert(`Failed to save step 4  application: ${data.msg || 'Unknown error'}`)

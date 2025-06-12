@@ -67,7 +67,7 @@ const StepThree = ({ onNext }) => {
 
         // Store leadId in localStorage
 
-        alert('Your step 3  application is saved successfully. Our representative will contact you soon.')
+        toast.success('Successfully Saved Financial Information')
         onNext()
       } else {
         console.error('step 3  creation failed:', data)

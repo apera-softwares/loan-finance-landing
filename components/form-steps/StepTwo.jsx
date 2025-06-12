@@ -110,8 +110,8 @@ const StepTwo = ({ onNext }) => {
         console.log('step 2 created successfully:', data)
 
         // Store leadId in localStorage
+        toast.success('Successfully Saved Company Information')
 
-        alert('Your step 2  application is saved successfully. Our representative will contact you soon.')
         onNext()
       } else {
         console.error('step 2  creation failed:', data)
