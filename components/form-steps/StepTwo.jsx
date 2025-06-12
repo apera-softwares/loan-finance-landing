@@ -4,6 +4,7 @@ import { BACKEND_API } from '@/api'
 import { legalStructure } from '@/data/legalStructurData'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
 const StepTwo = ({ onNext }) => {
   const [formData, setFormData] = useState({

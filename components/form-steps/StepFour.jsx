@@ -3,8 +3,9 @@ import { Eye, EyeOff } from 'lucide-react'
 import { BACKEND_API } from '@/api'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
-const StepFour = ({}) => {
+const StepFour = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -199,7 +200,6 @@ const StepFour = ({}) => {
         console.log('step 4 created successfully:', data)
 
         // Store leadId in localStorage
-        
 
         toast.success('Successfully Saved Owner Information')
         router('/success-form-sub')
@@ -272,7 +272,8 @@ const StepFour = ({}) => {
             {formData.ownershipType === 'CORPORATE_ENTITY' && (
               <div className="col-span-full mt-6 grid grid-cols-12 gap-6">
                 <div className="col-span-12 text-sm font-medium text-red-600">
-                  Please Note: Select 'Corporate Entity' only if youu is owned or partly owned by another business.
+                  Please Note: Select {"'"}Corporate Entity{"'"}only if youu is owned or partly owned by another
+                  business.
                 </div>
 
                 <div className="col-span-12 text-sm font-semibold text-[#213468] dark:text-white">
@@ -385,7 +386,7 @@ const StepFour = ({}) => {
                       maxLength={10}
                       value={formData.PrimaryBusinessIdentificationNumber}
                       onChange={(e) =>
-                        setFormData({ ...formData, PrimaryBusinessIdentificationNumber: formatEIN(e.target.value) })
+                        setFormData({ ...formData, PrimaryBusinessIdentificationNumber: e.target.value })
                       }
                     />
                   )}
@@ -421,7 +422,7 @@ const StepFour = ({}) => {
                           })
                         }
                       />
-                      <span className="ml-2">I don't have my Federal Tax ID with me</span>
+                      <span className="ml-2">I don{"'"}t have my Federal Tax ID with me</span>
                     </label>
 
                     <label className="block">
@@ -438,7 +439,7 @@ const StepFour = ({}) => {
                           })
                         }
                       />
-                      <span className="ml-2">I don't have a Federal Tax ID</span>
+                      <span className="ml-2">I don{"'"}t have a Federal Tax ID</span>
                     </label>
                   </div>
                 </div>

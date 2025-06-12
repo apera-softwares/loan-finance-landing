@@ -1,12 +1,10 @@
-import Head from 'next/head'
-
 export default function SuccessPage() {
   return (
     <>
       <div className="flex min-h-screen items-center justify-center bg-white px-4 py-12">
         <div className="w-full max-w-3xl rounded-lg border border-green-500 p-6 text-center shadow-lg">
           {/* Icons */}
-<button className="rounded-full bg-green-600 my-4 px-8 py-4 font-semibold text-white transition hover:bg-[#3b3bb5]">
+          <button className="my-4 rounded-full bg-green-600 px-8 py-4 font-semibold text-white transition hover:bg-[#3b3bb5]">
             Back to Home Page
           </button>
           {/* Main Title */}
