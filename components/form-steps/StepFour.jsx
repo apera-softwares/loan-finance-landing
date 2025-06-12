@@ -145,7 +145,7 @@ const StepFour = () => {
     const leadId = localStorage.getItem('leadId')
 
     const stepOneData = {
-      isOwner: formData.isOwner,
+      isOwner: formData.iOwner,
       ownershipType: formData.ownershipType,
       ownerFirstName: formData.firstName,
       ownerLastName: formData.lastName,
