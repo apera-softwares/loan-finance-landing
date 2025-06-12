@@ -4,6 +4,7 @@ import FadeUpAnimation from '../animations/FadeUpAnimation'
 import { useState } from 'react'
 import { BACKEND_API } from '@/api'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 const USDollar = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -80,8 +81,7 @@ const HeroContact = () => {
 
         // Store leadId in localStorage
         localStorage.setItem('leadId', data.leadId)
-
-        alert('Your application is saved successfully. Our representative will contact you soon.')
+        toast.success('Your application is saved successfully. Moving to the next Step')
         router.push('/form-details')
       } else {
         console.error('Lead creation failed:', data)
