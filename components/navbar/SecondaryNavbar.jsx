@@ -10,7 +10,7 @@ import { FaAngleDown, FaTimes } from 'react-icons/fa'
 import SearchOption from './SearchOption'
 import TopBar from './TopBar'
 
-const SecondaryNavbar = ({ hideTopBar = false }) => {
+const SecondaryNavbar = ({ hideTopBar = false, color }) => {
   const { menuData } = NavbarItem
   const pathname = usePathname()
   const [showSearch, setShowSearch] = useState(false)
@@ -38,6 +38,7 @@ const SecondaryNavbar = ({ hideTopBar = false }) => {
         className={cn(
           'fixed left-0  z-50 w-full bg-transparent transition-all duration-500 max-md:z-[500]',
           sticky ? 'nav-sticky bg-[#101832]' : '',
+          color ? `nav-sticky bg-[${color}]` : '',
           !hideTopBar ? 'top-16' : 'top-8',
         )}>
         <nav className="container relative flex items-center">

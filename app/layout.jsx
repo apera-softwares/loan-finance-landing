@@ -2,6 +2,7 @@ import '@/scss/theme.scss'
 import { cn } from '@/utils/cn'
 import { Inter, Poppins, Sansita } from 'next/font/google'
 import PropTypes from 'prop-types'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -27,13 +28,17 @@ const sansita = Sansita({
   variable: '--font-sansita',
 })
 
+// export const metadata = {
+//   title: {
+//     default: 'Lending Square | Business Financing',
+//     template: '%s - Lending Square | Business Financing',
+//   },
+//   description:
+//     'Aplio is an exceptional Next js template tailored for SaaS landing websites. Embodying the essence of modern SaaS platforms.',
+// }
+
 export const metadata = {
-  title: {
-    default: 'Aplio - Aplio Sass Landing Page',
-    template: '%s - Aplio Sass Landing Page',
-  },
-  description:
-    'Aplio is an exceptional Next js template tailored for SaaS landing websites. Embodying the essence of modern SaaS platforms.',
+  title: 'Lending Square | Business Financing',
 }
 
 export default function RootLayout({ children }) {
@@ -50,6 +55,7 @@ export default function RootLayout({ children }) {
         )}>
         {/* <ThemeModeProvider> */}
         {/* <ThemeSwitcher /> */}
+        <Toaster position="top-center" reverseOrder={false} />
         {children}
         {/* </ThemeModeProvider> */}
       </body>

@@ -6,6 +6,7 @@ import HeroContact from '@/components/home-7/HeroContact'
 import SecondaryNavbar from '@/components/navbar/SecondaryNavbar'
 import MembersCounter from '@/components/shared/MembersCounter'
 import Pricing from '@/components/shared/Pricing'
+
 export const metadata = {
   title: 'Lending Square | Business Financing',
 }

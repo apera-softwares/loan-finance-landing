@@ -48,7 +48,7 @@ const FooterV2 = () => {
         {/* Social Media Links */}
         <div>
           <h3 className="mb-8 text-2xl font-medium text-white">Social Media Links</h3>
-          <ul className="flex items-center gap-4">
+          <ul className="flex items-center justify-center gap-4">
             {FooterData.socialLinks.map((item) => (
               <li key={item.id}>
                 <Link
