@@ -26,6 +26,8 @@ const StepOne = ({ onNext }) => {
     franchise: false,
   })
 
+  console.log(selectedPlans, 'selectedPlans')
+
   const fetchStates = async () => {
     try {
       const res = await fetch(`${BACKEND_API}user/states`, {
@@ -63,21 +65,61 @@ const StepOne = ({ onNext }) => {
     fetchStates()
   }, [])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const leadId = localStorage.getItem('leadId')
+
+    const stepOneData = {
+      amountNeeded: parseInt(formData.amountNeeded),
+      applicantRole: formData.role,
+      businessName: formData.businessName,
+      dbaName: formData.alternateBusinessName,
+      address: formData.businessAddress,
+      businessCityId: formData.cityId,
+      businessStateId: formData.stateId,
+      businessZipCode: formData.pincode,
+      phoneNumber: formData.phone,
+      isFranchise: formData.franchise,
+      planUsageOfFund: selectedPlans,
+    }
+
+    console.log(stepOneData, 'stepOneData')
+
+    try {
+      const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(stepOneData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.status === true && data.status_code === 201) {
+        console.log('step 1 created successfully:', data)
+
+        // Store leadId in localStorage
+
+        alert('Your step 1  application is saved successfully. Our representative will contact you soon.')
+        onNext()
+      } else {
+        console.error('step 1  creation failed:', data)
+        alert(`Failed to save step 1  application: ${data.msg || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('step 1  Form submission error:', error)
+      alert('Something went wrong while submitting the step 1  form. Please try again later.')
+    }
+  }
+
   return (
     <section className="bg-white pb-150 dark:bg-dark-300 max-md:pb-20">
       <div className="rounded border-gray-100 bg-white p-12 dark:border-borderColor-dark dark:bg-dark-200 max-md:p-5">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            const fullData = {
-              ...formData,
-              selectedPlans,
-            }
-            console.log('Submitted Data:', fullData)
-            onNext()
-          }}>
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
-            <div className="flex h-36 justify-between gap-3 max-md:col-span-full md:col-span-12">
+            <div className="flex flex-wrap justify-between gap-3 max-md:col-span-full md:col-span-12">
               {plans.map((plan) => {
                 const isSelected = selectedPlans.includes(plan.value)
 
@@ -89,11 +131,17 @@ const StepOne = ({ onNext }) => {
                         prev.includes(plan.value) ? prev.filter((val) => val !== plan.value) : [...prev, plan.value],
                       )
                     }
-                    className={`flex w-1/5 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border p-3 ${
-                      isSelected ? 'border-emerald-500 bg-gray-50' : 'border-gray-300'
-                    }`}>
-                    <Image src={`/images/icons/${plan.icon}.svg`} alt="Plan" width={40} height={40} />
-                    <span>{plan.name}</span>
+                    className={`flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border
+          p-3 sm:w-[48%] md:w-[31%] lg:w-[23%] xl:w-[18%]
+          ${isSelected ? 'border-emerald-500 bg-gray-50' : 'border-gray-300'}`}>
+                    <Image
+                      src={`/images/icons/${plan.icon}.svg`}
+                      alt="Plan"
+                      width={40}
+                      height={40}
+                      className="hidden md:flex"
+                    />
+                    <span className="text-center text-sm">{plan.name}</span>
                   </div>
                 )
               })}
@@ -112,7 +160,21 @@ const StepOne = ({ onNext }) => {
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                 <option value={0}>Select Amount</option>
                 <option value={10000}>Under {USDollar.format(10000)}</option>
-
+                <option value={20000}>
+                  {USDollar.format(10000)} - {USDollar.format(20000)}
+                </option>
+                <option value={30000}>
+                  {USDollar.format(20000)} - {USDollar.format(30000)}
+                </option>
+                <option value={50000}>
+                  {USDollar.format(30000)} - {USDollar.format(50000)}
+                </option>
+                <option value={100000}>
+                  {USDollar.format(50000)} - {USDollar.format(100000)}
+                </option>
+                <option value={300000}>
+                  {USDollar.format(100000)} - {USDollar.format(300000)}
+                </option>
                 <option value={300001}>More than {USDollar.format(300000)}</option>
               </select>
               {/* {errors.amountNeeded && <p className="mt-1 text-start text-sm text-red-500">{errors.amountNeeded}</p>} */}
@@ -131,8 +193,11 @@ const StepOne = ({ onNext }) => {
                 onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary">
                 <option value="">Select Role</option>
-                <option value="owner">Owner</option>
-                <option value="advisor">Advisor</option>
+                <option value="OWNER">Owner</option>
+                <option value="ADVISOR">Advisor</option>
+                <option value="EMPLOYEE">Employee</option>
+                <option value="BOARD_MEMBER">Board Member</option>
+                <option value="OTHER">Other</option>
               </select>
             </div>
 

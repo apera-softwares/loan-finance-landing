@@ -24,8 +24,8 @@ const Page = () => {
     <>
       <SecondaryNavbar hideTopBar color="#101832" />
       <main className="pt-150">
-        <div className="container relative z-10">
-          <ol className="w-full items-center justify-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+        <div className="container relative z-10 ">
+          <ol className="w-full items-center justify-center space-y-4 pb-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
             {stepsData.map((item) => (
               <li
                 key={item.step}
@@ -52,7 +52,6 @@ const Page = () => {
             {step === 3 && <StepThree onNext={handleNext} onPrev={handlePrev} />}
             {step === 4 && <StepFour onPrev={handlePrev} />}
           </div>
-          
         </div>
       </main>
       <FooterV2 />

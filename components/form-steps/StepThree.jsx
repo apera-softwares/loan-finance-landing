@@ -1,7 +1,10 @@
 'use client'
+import { BACKEND_API } from '@/api'
 import { useState } from 'react'
 
-const StepThree = ({ onNext, onPrev }) => {
+const StepThree = ({ onNext }) => {
+  const leadId = localStorage.getItem('leadId')
+
   const [formData, setFormData] = useState({
     revenueLast12Months: '',
     expensesLast12Months: '',
@@ -9,8 +12,9 @@ const StepThree = ({ onNext, onPrev }) => {
     hasOutstandingDebt: false,
     debt: [
       {
-        name: '',
-        remainingBalance: '',
+        nameOfLender: '',
+        remainingBalance: 0,
+        leadId: leadId,
       },
     ],
   })
@@ -24,7 +28,7 @@ const StepThree = ({ onNext, onPrev }) => {
   const addDebt = () => {
     setFormData({
       ...formData,
-      debt: [...formData.debt, { name: '', remainingBalance: '' }],
+      debt: [...formData.debt, { nameOfLender: '', remainingBalance: '', leadId: leadId }],
     })
   }
 
@@ -34,10 +38,45 @@ const StepThree = ({ onNext, onPrev }) => {
     setFormData({ ...formData, debt: updatedDebt })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Submitted formData:', formData)
-    onNext()
+
+    const stepFourData = {
+      revenueLast12Months: parseInt(formData.revenueLast12Months),
+      expensesLast12Months: parseInt(formData.expensesLast12Months),
+      acceptsCreditCards: formData.acceptsCreditCards,
+      hasOutstandingDebt: formData.hasOutstandingDebt,
+      leadOutstandingDebt: formData.debt,
+    }
+
+    console.log(stepFourData, 'step four Data')
+
+    try {
+      const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(stepFourData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.status === true && data.status_code === 201) {
+        console.log('step 3 created successfully:', data)
+
+        // Store leadId in localStorage
+
+        alert('Your step 3  application is saved successfully. Our representative will contact you soon.')
+        onNext()
+      } else {
+        console.error('step 3  creation failed:', data)
+        alert(`Failed to save step 3  application: ${data.msg || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('step 3  Form submission error:', error)
+      alert('Something went wrong while submitting the step 3  form. Please try again later.')
+    }
   }
 
   return (
@@ -47,7 +86,9 @@ const StepThree = ({ onNext, onPrev }) => {
           <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
             {/* Revenue */}
             <div className="max-md:col-span-full md:col-span-4">
-              <label htmlFor="revenueLast12Months" className="mb-2 block text-left text-sm font-medium text-[#213468] dark:text-white">
+              <label
+                htmlFor="revenueLast12Months"
+                className="mb-2 block text-left text-sm font-medium text-[#213468] dark:text-white">
                 Revenue (Last 12 Months)
               </label>
               <div className="relative">
@@ -60,14 +101,16 @@ const StepThree = ({ onNext, onPrev }) => {
                   onChange={(e) =>
                     setFormData({ ...formData, revenueLast12Months: e.target.value.replace(/[^0-9.]/g, '') })
                   }
-                  className="block w-full rounded border border-black bg-white pl-7 pr-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
+                  className="block w-full rounded border border-black bg-white py-2.5 pl-7 pr-5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
                 />
               </div>
             </div>
 
             {/* Expenses */}
             <div className="max-md:col-span-full md:col-span-4">
-              <label htmlFor="expensesLast12Months" className="mb-2 block text-left text-sm font-medium text-[#213468] dark:text-white">
+              <label
+                htmlFor="expensesLast12Months"
+                className="mb-2 block text-left text-sm font-medium text-[#213468] dark:text-white">
                 Business Expense (Last 12 Months)
               </label>
               <div className="relative">
@@ -80,7 +123,7 @@ const StepThree = ({ onNext, onPrev }) => {
                   onChange={(e) =>
                     setFormData({ ...formData, expensesLast12Months: e.target.value.replace(/[^0-9.]/g, '') })
                   }
-                  className="block w-full rounded border border-black bg-white pl-7 pr-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
+                  className="block w-full rounded border border-black bg-white py-2.5 pl-7 pr-5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
                 />
               </div>
             </div>
@@ -141,48 +184,45 @@ const StepThree = ({ onNext, onPrev }) => {
             <div className="mt-8">
               <p className="mb-4 text-sm font-medium text-[#213468] dark:text-white">Outstanding Debts</p>
               {formData.debt.map((d, index) => (
-                <div key={index} className="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                <div key={index} className="mb-4 grid grid-cols-1 items-end gap-4 md:grid-cols-3">
                   <input
                     type="text"
                     placeholder="Debt Name"
-                    value={d.name}
-                    onChange={(e) => handleDebtChange(index, 'name', e.target.value)}
-                    className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:bg-dark-200 dark:border-borderColor-dark"
+                    value={d.nameOfLender}
+                    onChange={(e) => handleDebtChange(index, 'nameOfLender', e.target.value)}
+                    className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:border-borderColor-dark dark:bg-dark-200"
                   />
                   <input
                     type="text"
                     placeholder="Remaining Balance ($)"
                     value={d.remainingBalance}
                     onChange={(e) =>
-                      handleDebtChange(index, 'remainingBalance', e.target.value.replace(/[^0-9.]/g, ''))
+                      handleDebtChange(index, 'remainingBalance', parseInt(e.target.value.replace(/[^0-9.]/g, '')))
                     }
-                    className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:bg-dark-200 dark:border-borderColor-dark"
+                    className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:border-borderColor-dark dark:bg-dark-200"
                   />
                   <button
                     type="button"
                     onClick={() => removeDebt(index)}
-                    className="text-red-600 hover:underline text-sm">
+                    className="text-sm text-red-600 hover:underline">
                     Remove
                   </button>
                 </div>
               ))}
-              <button
-                type="button"
-                onClick={addDebt}
-                className="mt-2 text-blue-600 hover:underline text-sm">
+              <button type="button" onClick={addDebt} className="mt-2 text-sm text-blue-600 hover:underline">
                 + Add another debt
               </button>
             </div>
           )}
 
           {/* Navigation */}
-          <div className="my-8 flex justify-between gap-4">
-            <button
+          <div className="my-8 flex justify-end gap-4">
+            {/* <button
               type="button"
               onClick={onPrev}
               className="inline-flex w-56 justify-center rounded-[99px] border px-7 py-3.5 text-black">
               Previous
-            </button>
+            </button> */}
             <button
               type="submit"
               className="inline-flex w-56 justify-center rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-white">

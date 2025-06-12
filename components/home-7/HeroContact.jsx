@@ -3,7 +3,7 @@ import Image from 'next/image'
 import FadeUpAnimation from '../animations/FadeUpAnimation'
 import { useState } from 'react'
 import { BACKEND_API } from '@/api'
-
+import { useRouter } from 'next/navigation'
 
 const USDollar = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -22,9 +22,9 @@ const HeroContact = () => {
     creditScore: '',
   })
 
-  console.log(errors, 'errors')
+  const router = useRouter()
 
-  function saveForm(formData) {
+  const saveForm = async (formData) => {
     const firstName = formData.get('firstName')?.trim()
     const lastName = formData.get('lastName')?.trim()
     const email = formData.get('email')?.trim()
@@ -64,23 +64,33 @@ const HeroContact = () => {
       creditScore: parseInt(creditScore),
     }
 
-    fetch(`${BACKEND_API}/lead`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
+    try {
+      const response = await fetch(`${BACKEND_API}lead`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.status === true && data.status_code === 201) {
+        console.log('Lead created successfully:', data)
+
+        // Store leadId in localStorage
+        localStorage.setItem('leadId', data.leadId)
+
         alert('Your application is saved successfully. Our representative will contact you soon.')
-        return response.json()
-      })
-      .catch((err) => {
-        console.error('Form submission error:', err)
-      })
+        router.push('/form-details')
+      } else {
+        console.error('Lead creation failed:', data)
+        alert(`Failed to save application: ${data.msg || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Something went wrong while submitting the form. Please try again later.')
+    }
   }
 
   return (

@@ -34,7 +34,8 @@ export const legalStructure = [
     name: 'Limited Partnership',
     value: 'LIMITED_PARTNERSHIP',
     icon: 'time',
-  },,
+  },
+  ,
   {
     id: '7',
     name: "I don't know",

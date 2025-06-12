@@ -84,32 +84,32 @@ export const FooterData = {
   socialLinks: [
     {
       id: 1,
-      name: "facebook",
+      name: 'facebook',
       link: '#',
     },
     {
       id: 2,
-      name: "instagram",
+      name: 'instagram',
       link: '#',
     },
     {
       id: 3,
-      name: "linkdin",
+      name: 'linkdin',
       link: '#',
     },
     {
       id: 4,
-      name: "youtube",
+      name: 'youtube',
       link: '#',
     },
-      {
+    {
       id: 5,
-      name: "spotify",
+      name: 'spotify',
       link: '#',
     },
-      {
+    {
       id: 6,
-      name: "tiktok",
+      name: 'tiktok',
       link: '#',
     },
   ],

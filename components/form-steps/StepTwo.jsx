@@ -5,7 +5,7 @@ import { legalStructure } from '@/data/legalStructurData'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-const StepTwo = ({ onNext, onPrev }) => {
+const StepTwo = ({ onNext }) => {
   const [formData, setFormData] = useState({
     industryId: '',
     subIndustryId: '',
@@ -13,7 +13,6 @@ const StepTwo = ({ onNext, onPrev }) => {
     taxIdentification: '',
     taxIdentificationNumber: '',
     dateOfBusinessStarted: '',
-    stateId: '',
   })
 
   const [industries, setIndustries] = useState([])
@@ -79,6 +78,51 @@ const StepTwo = ({ onNext, onPrev }) => {
     fetchStates()
   }, [])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const leadId = localStorage.getItem('leadId')
+
+    const stepOneData = {
+      companyLegalStructure: selectedPlan,
+      taxIdentification: formData.taxIdentification,
+      taxIdentificationNumber: formData.taxIdentificationNumber,
+      industryId: formData.industryId,
+      subIndustryId: formData.subIndustryId,
+      StateOfIncorporationId: formData.stateId,
+      dateOfBusinessStarted: formData.dateOfBusinessStarted,
+    }
+
+    console.log(stepOneData, 'stepOneData')
+
+    try {
+      const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(stepOneData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.status === true && data.status_code === 201) {
+        console.log('step 2 created successfully:', data)
+
+        // Store leadId in localStorage
+
+        alert('Your step 2  application is saved successfully. Our representative will contact you soon.')
+        onNext()
+      } else {
+        console.error('step 2  creation failed:', data)
+        alert(`Failed to save step 2 application: ${data.msg || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('step 2  Form submission error:', error)
+      alert('Something went wrong while submitting the step 2  form. Please try again later.')
+    }
+  }
+
   return (
     <section className="bg-white pb-150 dark:bg-dark-300 max-md:pb-20">
       {' '}
@@ -103,7 +147,7 @@ const StepTwo = ({ onNext, onPrev }) => {
         </div>
       </div>
       {selectedPlan && (
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-12 max-md:gap-y-10 md:gap-8 md:gap-x-12">
             {/* Show business name input if selectedPlan is LLC */}
 
@@ -157,7 +201,7 @@ const StepTwo = ({ onNext, onPrev }) => {
                       })
                     }
                   />
-                  I don't have my tax ID handy
+                  I don{"'"}t have my tax ID handy
                 </label>
               </div>
             </div>
@@ -261,24 +305,31 @@ const StepTwo = ({ onNext, onPrev }) => {
                 ))}
               </select>
             </div>
+            <div className="mt-8 flex justify-end gap-4 max-md:col-span-full md:col-span-12">
+              <div className="inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center shadow">
+                <button type="submit" className="font-['Inter'] text-base font-medium text-white">
+                  Next
+                </button>
+              </div>
+            </div>
           </div>
         </form>
       )}
       {/* Navigation Buttons */}
-      <div className="my-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-        <button
+      {/* <div className="my-8 flex flex-col items-center justify-end gap-4 md:flex-row"> */}
+      {/* <button
           type="button"
           onClick={onPrev}
           className="inline-flex w-56 justify-center rounded-[99px] border px-7 py-3.5 text-black">
           Previous
-        </button>
-        <button
+        </button> */}
+      {/* <button
           type="button"
           onClick={onNext}
           className="inline-flex w-56 justify-center rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-white">
           Next
         </button>
-      </div>
+      </div> */}
     </section>
   )
 }
