@@ -27,6 +27,10 @@ const StepFour = () => {
     dbaName: '',
     corporateOwnership: '',
     corporateAddress: '',
+    IDontHaveMyFederalTaxIDWithMe:"",
+    corporateStateId:"",
+    corporateZipCode:"",
+    
   })
   const [states, setStates] = useState([])
   const [cities, setCities] = useState([])
