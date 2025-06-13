@@ -27,7 +27,8 @@ const StepFour = () => {
     dbaName: '',
     corporateOwnership: '',
     corporateAddress: '',
-    IDontHaveMyFederalTaxIDWithMe: '',
+    IDontHaveMyFederalTaxIDWithMe: false,
+    IDontHaveAFederalTaxID: false,
     corporateStateId: '',
     corporateZipCode: '',
   })
@@ -162,6 +163,7 @@ const StepFour = () => {
       ownerStateId: formData.stateId,
       OwnerZipCode: formData.pincode,
       socialSecurityNumber: formData.socialSecurityNo,
+      sameAsBusinessAddress: formData.sameAsBusiness,
 
       legalNameOfBusiness: formData.legalBusinessName,
       dBAName: formData.dbaName,
@@ -172,6 +174,7 @@ const StepFour = () => {
       corporateZipCode: formData.corporateZipCode,
       PrimaryBusinessIdentificationNumber: formData.PrimaryBusinessIdentificationNumber,
       IDontHaveMyFederalTaxIDWithMe: formData.IDontHaveMyFederalTaxIDWithMe,
+      IDontHaveAFederalTaxID: formData.IDontHaveAFederalTaxID,
 
       beneficialOwnerFirstName: formData.firstName,
       beneficialOwnerLastName: formData.lastName,
@@ -184,6 +187,7 @@ const StepFour = () => {
       beneficialAddress: formData.address,
       beneficialCityId: formData.cityId,
       beneficialStateId: formData.stateId,
+      beneficialOwnerZip: formData.pincode,
     }
 
     console.log(stepOneData, 'stepOneData')
@@ -369,8 +373,8 @@ const StepFour = () => {
                   <input
                     type="text"
                     className="w-full rounded border border-black px-5 py-2.5 text-sm"
-                    value={formData.corporateZip}
-                    onChange={(e) => setFormData({ ...formData, corporateZip: e.target.value })}
+                    value={formData.corporateZipCode}
+                    onChange={(e) => setFormData({ ...formData, corporateZipCode: e.target.value })}
                   />
                 </div>
 
@@ -671,11 +675,11 @@ const StepFour = () => {
           </p>
 
           <div className="mt-8 flex justify-end gap-4 max-md:col-span-full md:col-span-12">
-            <div className="inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center shadow">
-              <button type="submit" className="font-['Inter'] text-base font-medium text-white">
-                Submit
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center font-['Inter'] text-base font-medium text-white shadow">
+              Submit
+            </button>
           </div>
         </form>
       </div>

@@ -307,11 +307,11 @@ const StepTwo = ({ onNext }) => {
               </select>
             </div>
             <div className="mt-8 flex justify-end gap-4 max-md:col-span-full md:col-span-12">
-              <div className="inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center shadow">
-                <button type="submit" className="font-['Inter'] text-base font-medium text-white">
-                  Next
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center font-['Inter'] text-base font-medium text-white shadow">
+                Save & Next
+              </button>
             </div>
           </div>
         </form>
