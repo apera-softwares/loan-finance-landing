@@ -14,7 +14,7 @@ const StepThree = ({ onNext }) => {
     debt: [
       {
         nameOfLender: '',
-        remainingBalance: 0,
+        remainingBalance: '',
         leadId: leadId,
       },
     ],
@@ -193,15 +193,19 @@ const StepThree = ({ onNext }) => {
                     onChange={(e) => handleDebtChange(index, 'nameOfLender', e.target.value)}
                     className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:border-borderColor-dark dark:bg-dark-200"
                   />
-                  <input
-                    type="text"
-                    placeholder="Remaining Balance ($)"
-                    value={d.remainingBalance}
-                    onChange={(e) =>
-                      handleDebtChange(index, 'remainingBalance', parseInt(e.target.value.replace(/[^0-9.]/g, '')))
-                    }
-                    className="rounded border border-black bg-white px-4 py-2.5 text-sm dark:border-borderColor-dark dark:bg-dark-200"
-                  />
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                    <input
+                      type="number"
+                      placeholder="Remaining Balance ($)"
+                      value={d.remainingBalance}
+                      onChange={(e) =>
+                        handleDebtChange(index, 'remainingBalance', parseInt(e.target.value.replace(/[^0-9.]/g, '')))
+                      }
+                      className="rounded border border-black bg-white px-10 py-2.5 text-sm dark:border-borderColor-dark dark:bg-dark-200"
+                    />
+                  </div>
+
                   <button
                     type="button"
                     onClick={() => removeDebt(index)}

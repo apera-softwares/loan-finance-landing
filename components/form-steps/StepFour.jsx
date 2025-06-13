@@ -32,6 +32,7 @@ const StepFour = () => {
     corporateStateId: '',
     corporateZipCode: '',
   })
+  
   const [states, setStates] = useState([])
   const [cities, setCities] = useState([])
   const [corState, setCorStates] = useState([])

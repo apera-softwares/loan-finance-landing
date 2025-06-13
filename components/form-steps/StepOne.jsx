@@ -27,6 +27,43 @@ const StepOne = ({ onNext }) => {
     franchise: false,
   })
 
+  const [errors, setErrors] = useState({
+    amountNeeded: '',
+    businessName: '',
+    phone: '',
+  })
+
+  console.log(errors, 'errors')
+
+  const Validation = () => {
+    let valid = true
+    const newErrors = { ...errors }
+
+    if (formData?.amountNeeded?.trim() === '') {
+      newErrors.amountNeeded = 'Amount is required'
+      valid = false
+    } else {
+      newErrors.amountNeeded = ''
+    }
+
+    if (formData?.businessName?.trim() === '') {
+      newErrors.businessName = 'Business Name is required'
+      valid = false
+    } else {
+      newErrors.businessName = ''
+    }
+
+    if (formData?.phone?.trim() === '') {
+      newErrors.phone = 'Phone Name is required'
+      valid = false
+    } else {
+      newErrors.phone = ''
+    }
+
+    setErrors(newErrors)
+    return valid
+  }
+
   console.log(selectedPlans, 'selectedPlans')
 
   const fetchStates = async () => {
@@ -87,31 +124,33 @@ const StepOne = ({ onNext }) => {
 
     console.log(stepOneData, 'stepOneData')
 
-    try {
-      const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(stepOneData),
-      })
+    if (Validation()) {
+      try {
+        const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(stepOneData),
+        })
 
-      const data = await response.json()
+        const data = await response.json()
 
-      if (response.ok && data.status === true && data.status_code === 201) {
-        console.log('step 1 created successfully:', data)
+        if (response.ok && data.status === true && data.status_code === 201) {
+          console.log('step 1 created successfully:', data)
 
-        // Store leadId in localStorage
-        toast.success('Successfully Saved Funding Information')
+          // Store leadId in localStorage
+          toast.success('Successfully Saved Funding Information')
 
-        onNext()
-      } else {
-        console.error('step 1  creation failed:', data)
-        alert(`Failed to save step 1  application: ${data.msg || 'Unknown error'}`)
+          onNext()
+        } else {
+          console.error('step 1  creation failed:', data)
+          alert(`Failed to save step 1  application: ${data.msg || 'Unknown error'}`)
+        }
+      } catch (error) {
+        console.error('step 1  Form submission error:', error)
+        alert('Something went wrong while submitting the step 1  form. Please try again later.')
       }
-    } catch (error) {
-      console.error('step 1  Form submission error:', error)
-      alert('Something went wrong while submitting the step 1  form. Please try again later.')
     }
   }
 
@@ -123,7 +162,6 @@ const StepOne = ({ onNext }) => {
             <div className="flex flex-wrap justify-between gap-3 max-md:col-span-full md:col-span-12">
               {plans.map((plan) => {
                 const isSelected = selectedPlans.includes(plan.value)
-
                 return (
                   <div
                     key={plan.id}
@@ -178,7 +216,7 @@ const StepOne = ({ onNext }) => {
                 </option>
                 <option value={300001}>More than {USDollar.format(300000)}</option>
               </select>
-              {/* {errors.amountNeeded && <p className="mt-1 text-start text-sm text-red-500">{errors.amountNeeded}</p>} */}
+              {errors.amountNeeded && <p className="mt-1 text-start text-sm text-red-500">{errors.amountNeeded}</p>}
             </div>
 
             <div className="max-md:col-span-full md:col-span-4">
@@ -216,6 +254,7 @@ const StepOne = ({ onNext }) => {
                 onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:placeholder:text-paragraph-light dark:focus:border-primary"
               />
+              {errors.businessName && <p className="mt-1 text-start text-sm text-red-500">{errors.businessName}</p>}
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
@@ -264,6 +303,7 @@ const StepOne = ({ onNext }) => {
                 placeholder="Enter your phone"
                 className="block w-full rounded border border-black bg-white px-5 py-2.5 text-sm text-paragraph-light outline-none transition-all duration-300 placeholder:text-paragraph-light focus:border-primary dark:border-borderColor-dark dark:bg-dark-200 dark:focus:border-primary"
               />
+              {errors.phone && <p className="mt-1 text-start text-sm text-red-500">{errors.phone}</p>}
             </div>
             <div className="max-md:col-span-full md:col-span-4">
               <label
