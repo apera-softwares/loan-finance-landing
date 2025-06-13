@@ -307,11 +307,11 @@ const HeroContact = () => {
                         )}
                       </div>
 
-                      <div className="col-span-full mx-auto inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center shadow-[0px_0px_0px_3px_rgba(117,191,184,0.15)]">
-                        <button type="submit" className="justify-start font-['Inter'] text-base font-medium text-white">
-                          Get Qualified Now
-                        </button>
-                      </div>
+                      <button
+                        type="submit"
+                        className="col-span-full mx-auto inline-flex w-56 items-center justify-center gap-2.5 overflow-hidden rounded-[99px] bg-gradient-to-br from-blue-950 to-emerald-300 px-7 py-3.5 text-center font-['Inter'] text-base font-medium text-white shadow-[0px_0px_0px_3px_rgba(117,191,184,0.15)]">
+                        Get Qualified Now
+                      </button>
                     </div>
                   </form>
                 </div>
