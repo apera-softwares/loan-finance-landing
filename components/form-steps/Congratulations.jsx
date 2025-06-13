@@ -122,16 +122,13 @@ export default function SuccessPage() {
     <>
       <div className="flex min-h-screen items-center justify-center bg-white px-4 py-12">
         <div className="w-full max-w-3xl rounded-lg border border-green-500 p-6 text-center shadow-lg">
-          {/* Main Title */}
           <h2 className="mb-2 text-2xl font-semibold text-green-600">Business Bank Statements</h2>
 
-          {/* Subtitle */}
           <p className="mb-6 text-gray-700">
             We partner with <strong>PLAID</strong> to verify your business activity and assess your eligibility for
             financing. When connecting your account, you maintain control at all times.
           </p>
 
-          {/* CTA Button */}
           <button
             className="rounded-full bg-[#4c4cd6] px-6 py-2 font-semibold text-white transition hover:bg-[#3b3bb5]"
             onClick={() => open()}
@@ -139,7 +136,6 @@ export default function SuccessPage() {
             Connect Now
           </button>
 
-          {/* Secure/Private/Trusted section */}
           <div className="mt-10 grid grid-cols-1 gap-4 border-t pt-6 text-left text-sm md:grid-cols-3">
             <div className="flex items-start gap-2">
               <span className="text-xl text-green-500">🛡️</span>
@@ -166,7 +162,6 @@ export default function SuccessPage() {
             </div>
           </div>
 
-          {/* Footer note */}
           <p className="mt-8 text-sm text-gray-600">
             Connecting your bank online is the fastest way to verify your business activity and get funding. If you’re
             facing a problem,{' '}
