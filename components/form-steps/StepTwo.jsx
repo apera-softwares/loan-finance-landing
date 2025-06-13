@@ -16,6 +16,11 @@ const StepTwo = ({ onNext }) => {
     dateOfBusinessStarted: '',
   })
 
+  const [errors, setErrors] = useState({
+    industryId: '',
+    subIndustryId: '',
+  })
+
   const [industries, setIndustries] = useState([])
   const [subIndustries, setSubIndustries] = useState([])
   const [states, setStates] = useState([])
@@ -23,6 +28,27 @@ const StepTwo = ({ onNext }) => {
   const [selectedPlan, setSelectedPlan] = useState('')
 
   console.log(selectedPlan, 'selectedPlan')
+
+  const Validation = () => {
+    let valid = true
+    const newErrors = { ...errors }
+
+    if (formData?.industryId?.trim() === '') {
+      newErrors.industryId = 'Industry is Required'
+      valid = false
+    } else {
+      newErrors.industryId = ''
+    }
+    if (formData?.subIndustryId?.trim() === '') {
+      newErrors.subIndustryId = 'Sub-Industry is Required'
+      valid = false
+    } else {
+      newErrors.subIndustryId = ''
+    }
+
+    setErrors(newErrors)
+    return valid
+  }
 
   const fetchIndustry = async () => {
     try {
@@ -96,31 +122,33 @@ const StepTwo = ({ onNext }) => {
 
     console.log(stepOneData, 'stepOneData')
 
-    try {
-      const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(stepOneData),
-      })
+    if (Validation()) {
+      try {
+        const response = await fetch(`${BACKEND_API}lead/${leadId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(stepOneData),
+        })
 
-      const data = await response.json()
+        const data = await response.json()
 
-      if (response.ok && data.status === true && data.status_code === 201) {
-        console.log('step 2 created successfully:', data)
+        if (response.ok && data.status === true && data.status_code === 201) {
+          console.log('step 2 created successfully:', data)
 
-        // Store leadId in localStorage
-        toast.success('Successfully Saved Company Information')
+          // Store leadId in localStorage
+          toast.success('Successfully Saved Company Information')
 
-        onNext()
-      } else {
-        console.error('step 2  creation failed:', data)
-        alert(`Failed to save step 2 application: ${data.msg || 'Unknown error'}`)
+          onNext()
+        } else {
+          console.error('step 2  creation failed:', data)
+          alert(`Failed to save step 2 application: ${data.msg || 'Unknown error'}`)
+        }
+      } catch (error) {
+        console.error('step 2  Form submission error:', error)
+        alert('Something went wrong while submitting the step 2  form. Please try again later.')
       }
-    } catch (error) {
-      console.error('step 2  Form submission error:', error)
-      alert('Something went wrong while submitting the step 2  form. Please try again later.')
     }
   }
 
@@ -250,6 +278,7 @@ const StepTwo = ({ onNext }) => {
                   </option>
                 ))}
               </select>
+              {errors.industryId && <p className="mt-1 text-start text-sm text-red-500">{errors.industryId}</p>}
             </div>
             <div className="max-md:col-span-full md:col-span-6">
               <label
@@ -269,6 +298,7 @@ const StepTwo = ({ onNext }) => {
                   </option>
                 ))}
               </select>
+              {errors.subIndustryId && <p className="mt-1 text-start text-sm text-red-500">{errors.subIndustryId}</p>}
             </div>
             <div className="max-md:col-span-full md:col-span-6">
               <label
